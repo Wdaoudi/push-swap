@@ -6,7 +6,18 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 13:43:44 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/02 13:43:45 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/02 22:22:33 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+
+int	main(void)
+{
+}
+
+/*1. check error 
+ 2. parsing
+ 3. check limit
+ 4. atoi
+ 5. check duplicate*/

@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 13:43:34 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/02 16:16:46 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/02 21:26:56 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,11 @@ typedef struct stack
 {
     
 }t_stack;
+
+size_t	ft_strlen(const char *str);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strdup(const char *s);
+char	*parsing(char **str, int ac);
+
 
 #endif
