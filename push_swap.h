@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 13:43:34 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/04 19:01:13 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/04 19:26:25 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ typedef struct t_list
 }					u_list;
 
 // temporaire
-size_t				ft_strlen(const char *str);
-char				*ft_strjoin(char const *s1, char const *s2);
-char				*ft_strdup(const char *s);
-char				**ft_split(char const *s, char c);
-char				**slip(char const *s, char c, char **str);
-int					lenght_word(char const *s, char c, int i);
-int					count_words(char const *s, char c);
+// size_t				ft_strlen(const char *str);
+// char				*ft_strjoin(char const *s1, char const *s2);
+// char				*ft_strdup(const char *s);
+// char				**ft_split(char const *s, char c);
+// char				**slip(char const *s, char c, char **str);
+// int					lenght_word(char const *s, char c, int i);
+// int					count_words(char const *s, char c);
 
 // fonction utils
 long				ft_atoispe(const char *nptr);
@@ -51,9 +51,9 @@ int					check_lim(int nbr);
 int					check(char **str, int ac);
 
 //test
-// int	check(char **str, int ac);
-// int	parse_and_check(char **str, int ac);
-// int	check_limits(char **parsed);
-// int	free_parsed(char **parsed);
+int	check(char **str, int ac);
+int	parse_and_check(char **str, int ac);
+int	check_limits(char **parsed);
+int	free_parsed(char **parsed);
 
 #endif

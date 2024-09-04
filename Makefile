@@ -12,8 +12,9 @@ OBJS = $(SRCS:.c=.o)
 OBJECTS_PREFIXED = $(addprefix  $(OBJS_DIR), $(OBJS))
 
 CC = cc
-CC2 = cc -g3
-CC_FLAGS = -Wall -Werror -Wextra -I./libft -I./printf
+CC_FLAGS = -Wall -Werror -Wextra -g3 -I./libft -I./printf
+CC_FLAGS2 = -Wall -Werror -Wextra -g3 -I./libft -I./printf
+
 #ajout des chemin de compilation pour trouver les .h
 # -I indique ou chercher les entete
 LIBFT_DIR = libft
@@ -31,7 +32,7 @@ $(NAME): $(OBJECTS_PREFIXED) $(LIBFT) $(PRINTF)
 	@echo "Push_swap Done!"
 
 $(NAME2): $(OBJECTS_PREFIXED) $(LIBFT) $(PRINTF)
-	@$(CC2) $(CC_FLAGS) $(OBJECTS_PREFIXED) $(LIBFT) $(PRINTF) -o $(NAME)
+	@$(CC) $(CC_FLAGS) $(OBJECTS_PREFIXED) $(LIBFT) $(PRINTF) -o $(NAME)
 	@echo "Push_swap Done for valgrind!"
 
 $(LIBFT):
@@ -42,7 +43,7 @@ $(PRINTF):
 
 all: $(NAME)
 
-leak: $(NAME2) 
+all2: $(NAME2)
 
 clean:
 		rm -rf $(OBJS_DIR)

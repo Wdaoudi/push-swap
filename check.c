@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:20:54 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/04 19:24:15 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/04 19:26:11 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,103 +71,16 @@ int	check_lim(int nbr)
 	return (0);
 }
 
-int	check(char **str, int ac)
-{
-	int		i;
-	int		j;
-	char	**parsed;
-
-	if (ac == 2)
-	{
-		if (check_error(str[1]) == 1)
-			return (printf("Error\n"), 1);
-		parsed = ft_split(str[1], ' ');
-	}
-	else
-	{
-		i = 1;
-		while (i < ac)
-		{
-			if (check_error(str[i]) == 1)
-				return (printf("Error\n"), 1);
-			i++;
-		}
-		parsed = parsing(str, ac);
-	}
-	if (!parsed)
-		return (printf("Error\n"), 1);
-	i = 0;
-	while (parsed[i])
-	{
-		if ((ft_atoispe(parsed[i]) >= 2147483647) || (ft_atoispe(parsed[i]) <=
-				-2147483648))
-		{
-			// printf("Error\n");
-			j = 0;
-			while (parsed[j] != NULL)
-			{
-				free(parsed[j]);
-				j++;
-			}
-			free(parsed);
-			return (printf("Error\n"), 1);
-		}
-		i++;
-	}
-	if (check_dup(parsed) == 1)
-		return (1);
-	i = 0;
-	while (parsed[i] != NULL)
-	{
-		free(parsed[i]);
-		i++;
-	}
-	free(parsed);
-	return (0);
-}
-
-// int	free_parsed(char **parsed)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (parsed[i])
-// 	{
-// 		free(parsed[i]);
-// 		i++;
-// 	}
-// 	free(parsed);
-// 	return (1);
-// }
-
-// int	check_limits(char **parsed)
+// int	check(char **str, int ac)
 // {
 // 	int		i;
-// 	long	num;
-
-// 	i = 0;
-// 	while (parsed[i])
-// 	{
-// 		num = ft_atoispe(parsed[i]);
-// 		if (num > INT_MAX || num < INT_MIN)
-// 		{
-// 			ft_printf("overflow\n");
-// 			return (free_parsed(parsed));
-// 		}
-// 		i++;
-// 	}
-// 	return (0);
-// }
-
-// int	parse_and_check(char **str, int ac)
-// {
+// 	int		j;
 // 	char	**parsed;
-// 	int		i;
 
 // 	if (ac == 2)
 // 	{
-// 		if (check_error(str[1]))
-// 			return (ft_printf("Error bad input\n"), 1);
+// 		if (check_error(str[1]) == 1)
+// 			return (printf("Error\n"), 1);
 // 		parsed = ft_split(str[1], ' ');
 // 	}
 // 	else
@@ -175,23 +88,110 @@ int	check(char **str, int ac)
 // 		i = 1;
 // 		while (i < ac)
 // 		{
-// 			if (check_error(str[i]))
-// 				return (ft_printf("Error bad input\n"), 1);
+// 			if (check_error(str[i]) == 1)
+// 				return (printf("Error\n"), 1);
 // 			i++;
 // 		}
 // 		parsed = parsing(str, ac);
 // 	}
 // 	if (!parsed)
-// 		return (ft_printf("Memory allocation error\n"), 1);
-// 	if (check_limits(parsed) || check_dup(parsed) || free_parsed(parsed))
+// 		return (printf("Error\n"), 1);
+// 	i = 0;
+// 	while (parsed[i])
+// 	{
+// 		if ((ft_atoispe(parsed[i]) >= 2147483647) || (ft_atoispe(parsed[i]) <=
+// 				-2147483648))
+// 		{
+// 			// printf("Error\n");
+// 			j = 0;
+// 			while (parsed[j] != NULL)
+// 			{
+// 				free(parsed[j]);
+// 				j++;
+// 			}
+// 			free(parsed);
+// 			return (printf("Error\n"), 1);
+// 		}
+// 		i++;
+// 	}
+// 	if (check_dup(parsed) == 1)
 // 		return (1);
+// 	i = 0;
+// 	while (parsed[i] != NULL)
+// 	{
+// 		free(parsed[i]);
+// 		i++;
+// 	}
+// 	free(parsed);
 // 	return (0);
 // }
 
-// int	check(char **str, int ac)
-// {
-// 	return (parse_and_check(str, ac));
-// }
+int	free_parsed(char **parsed)
+{
+	int	i;
+
+	i = 0;
+	while (parsed[i])
+	{
+		free(parsed[i]);
+		i++;
+	}
+	free(parsed);
+	return (1);
+}
+
+int	check_limits(char **parsed)
+{
+	int		i;
+	long	num;
+
+	i = 0;
+	while (parsed[i])
+	{
+		num = ft_atoispe(parsed[i]);
+		if (num > INT_MAX || num < INT_MIN)
+		{
+			ft_printf("overflow\n");
+			return (free_parsed(parsed));
+		}
+		i++;
+	}
+	return (0);
+}
+
+int	parse_and_check(char **str, int ac)
+{
+	char	**parsed;
+	int		i;
+
+	if (ac == 2)
+	{
+		if (check_error(str[1]))
+			return (ft_printf("Error bad input\n"), 1);
+		parsed = ft_split(str[1], ' ');
+	}
+	else
+	{
+		i = 1;
+		while (i < ac)
+		{
+			if (check_error(str[i]))
+				return (ft_printf("Error bad input\n"), 1);
+			i++;
+		}
+		parsed = parsing(str, ac);
+	}
+	if (!parsed)
+		return (ft_printf("Memory allocation error\n"), 1);
+	if (check_limits(parsed) || check_dup(parsed) || free_parsed(parsed))
+		return (1);
+	return (0);
+}
+
+int	check(char **str, int ac)
+{
+	return (parse_and_check(str, ac));
+}
 
 /*1. check error OK
 2. parsing

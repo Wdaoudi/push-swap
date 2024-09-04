@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:22:54 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/04 19:23:44 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/04 20:06:29 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ long	ft_atoispe(const char *nptr)
 		nbr = (nbr * 10) + nptr[i] - '0';
 		i++;
 	}
-	if ((nbr * signe >= 2147483647) || (nbr * signe <= -2147483648))
+	if ((nbr * signe > 2147483647) || (nbr * signe < -2147483648))
 		return (nbr + nbr);
 	return (nbr * signe);
 }

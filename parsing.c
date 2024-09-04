@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:48:34 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/04 15:23:58 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/04 19:57:14 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 char	**parsing(char **str, int ac)
 {
-	char	*tab;
-	char	**result;
-	int		i;
-	int		len;
+	char *tab;
+	char **result;
+	int i;
+	int len;
 
 	if (ac < 2)
 		return (NULL);
