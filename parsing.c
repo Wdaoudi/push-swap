@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:48:34 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/03 18:48:53 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/04 15:23:58 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,3 @@ char	**parsing(char **str, int ac)
 	free(tab);
 	return (result);
 }
-
-// char	**parsing(char **str, int ac)
-// {
-// 	char *tab;
-// 	char **result;
-
-// 	if (ac < 2 || !str[1])
-// 		return (NULL);
-
-// 	tab = ft_strdup(str[1]);
-// 	if (!tab)
-// 		return (NULL);
-// 	result = ft_split(tab, ' ');
-// 	free(tab);
-// 	return (result);
-// }
