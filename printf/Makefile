@@ -1,4 +1,4 @@
-NAME = libftprintf.a
+NAME = printf.a
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
 RM = rm -f
