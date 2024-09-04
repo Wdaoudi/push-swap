@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 13:43:34 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/03 19:33:12 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/04 19:01:13 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@
 # include <string.h>
 # include <unistd.h>
 
-// # include "./libft/libft.h"
-// # include "./printf/ft_printf.h"
+# include "./libft/libft.h"
+# include "./printf/ft_printf.h"
 
 // definition de la structure du node
-typedef struct s_list
+typedef struct t_list
 {
 	int				value;
 	int				index;
-	struct s_list	*next;
-	struct s_list	*prev;
-}					t_list;
+	struct t_list	*next;
+	struct t_list	*prev;
+}					u_list;
 
 // temporaire
 size_t				ft_strlen(const char *str);
@@ -41,7 +41,7 @@ int					lenght_word(char const *s, char c, int i);
 int					count_words(char const *s, char c);
 
 // fonction utils
-long				ft_atoi(const char *nptr);
+long				ft_atoispe(const char *nptr);
 char				*ft_strcat(char *dest, const char *src);
 
 // fonction de parsing/check
@@ -49,5 +49,11 @@ char				**parsing(char **str, int ac);
 int					check_error(char *str);
 int					check_lim(int nbr);
 int					check(char **str, int ac);
+
+//test
+// int	check(char **str, int ac);
+// int	parse_and_check(char **str, int ac);
+// int	check_limits(char **parsed);
+// int	free_parsed(char **parsed);
 
 #endif

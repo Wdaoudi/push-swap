@@ -6,15 +6,15 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 13:58:44 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/07/08 14:00:09 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/04 18:35:49 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-long	ft_strlen(char *str)
+size_t	ft_strlenght(char *str)
 {
-	long	n;
+	size_t	n;
 
 	n = 0;
 	while (str[n])
@@ -28,7 +28,7 @@ int	ft_putnbrbase(long n, char *base)
 	size_t	count;
 	long	lenght;
 
-	lenght = ft_strlen(base);
+	lenght = ft_strlenght(base);
 	nbr = n;
 	count = 0;
 	if (nbr < 0)
@@ -51,7 +51,7 @@ int	ft_putptrbase(unsigned long n, char *base)
 	size_t	length;
 	size_t	count;
 
-	length = ft_strlen(base);
+	length = ft_strlenght(base);
 	count = 0;
 	if (n >= length)
 		count += ft_putnbrbase(n / length, base);

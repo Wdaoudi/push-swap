@@ -1,5 +1,5 @@
-SRCS =	check.c \
-		parsing.c \
+SRCS =	parsing.c \
+		check.c \
 		utils.c \
 # mettre les differents noms de fichier de type ft_*\
 
@@ -12,6 +12,7 @@ OBJS = $(SRCS:.c=.o)
 OBJECTS_PREFIXED = $(addprefix  $(OBJS_DIR), $(OBJS))
 
 CC = cc
+CC2 = cc -g3
 CC_FLAGS = -Wall -Werror -Wextra -I./libft -I./printf
 #ajout des chemin de compilation pour trouver les .h
 # -I indique ou chercher les entete
@@ -29,7 +30,10 @@ $(NAME): $(OBJECTS_PREFIXED) $(LIBFT) $(PRINTF)
 	@$(CC) $(CC_FLAGS) $(OBJECTS_PREFIXED) $(LIBFT) $(PRINTF) -o $(NAME)
 	@echo "Push_swap Done!"
 
-#ar r cree une bibliotheque statique .a et ajoute r
+$(NAME2): $(OBJECTS_PREFIXED) $(LIBFT) $(PRINTF)
+	@$(CC2) $(CC_FLAGS) $(OBJECTS_PREFIXED) $(LIBFT) $(PRINTF) -o $(NAME)
+	@echo "Push_swap Done for valgrind!"
+
 $(LIBFT):
 	@$(MAKE) -sC $(LIBFT_DIR)
 
@@ -37,6 +41,8 @@ $(PRINTF):
 	@$(MAKE) -sC $(PRINTF_DIR)
 
 all: $(NAME)
+
+leak: $(NAME2) 
 
 clean:
 		rm -rf $(OBJS_DIR)

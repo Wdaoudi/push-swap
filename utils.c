@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:22:54 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/03 19:11:34 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/04 19:23:44 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strcat(char *dest, const char *src)
 	*ptr = '\0';
 	return (dest);
 }
-long	ft_atoi(const char *nptr)
+long	ft_atoispe(const char *nptr)
 {
 	long	nbr;
 	long	i;
@@ -52,6 +52,6 @@ long	ft_atoi(const char *nptr)
 		i++;
 	}
 	if ((nbr * signe >= 2147483647) || (nbr * signe <= -2147483648))
-		return (printf("trop grand int\n"), nbr + nbr);
+		return (nbr + nbr);
 	return (nbr * signe);
 }
