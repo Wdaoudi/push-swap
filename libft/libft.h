@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 14:28:19 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/06/05 16:10:16 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/05 18:04:52 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,12 @@
 
 typedef struct s_list
 {
-	void			*content;
+	int				content;
+	int				index;
+	int				cost;
+	struct s_list	*target;
 	struct s_list	*next;
+	struct s_list	*prev;
 }					t_list;
 
 /* libc */
@@ -72,7 +76,7 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstlast(t_list *lst);
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
-t_list				*ft_lstnew(void *content);
+t_list				*ft_lstnew(int content);
 int					ft_lstsize(t_list *lst);
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 

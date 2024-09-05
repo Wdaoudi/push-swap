@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 13:43:34 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/05 15:35:59 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/05 17:44:31 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 # include "./libft/libft.h"
 # include "./printf/ft_printf.h"
 # include <limits.h>
-# include <stdio.h>
+# include <stdio.h> 
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
 
-// definition de la structure du node
+// definition de la structure dunode
 typedef struct s_list
 {
 	int				content;
