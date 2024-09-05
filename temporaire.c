@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:12:48 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/03 19:11:38 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/05 21:32:26 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,4 +153,60 @@ char	**ft_split(char const *s, char c)
 	if (str == NULL)
 		return (str);
 	return (slip(s, c, str));
+}
+int	ft_atoi(const char *nptr)
+{
+	int	nbr;
+	int	i;
+	int	signe;
+
+	i = 0;
+	signe = 1;
+	nbr = 0;
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
+		i++;
+	if (nptr[i] == 45)
+	{
+		signe = -signe;
+		i++;
+	}
+	else if (nptr[i] == 43)
+		i++;
+	while (nptr[i] >= 48 && nptr[i] <= 57)
+	{
+		nbr = (nbr * 10) + nptr[i] - '0';
+		i++;
+	}
+	return (nbr * signe);
+}
+
+
+t_list	*ft_lstnew(int content)
+{
+	t_list	*new;
+
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	new->prev = NULL;
+	return (new);
+}
+
+void	print_list(t_stack *stack)
+{
+	t_list *current = stack->first; // Pointeur pour parcourir la liste
+	// Vérifier si la liste est vide
+	if (current == NULL)
+	{
+		printf("La liste est vide.\n");
+		return ;
+	}
+	// Parcourir la liste jusqu'à la fin
+	while (current != NULL)
+	{
+		printf("Content: %d\n", current->content);
+		current = current->next; // Passer au nœud suivant
+	}
 }

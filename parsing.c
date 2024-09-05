@@ -6,13 +6,13 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:48:34 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/04 19:57:14 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/05 20:22:55 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	**parsing(char **str, int ac)
+char	**parsingcheck(char **str, int ac)
 {
 	char *tab;
 	char **result;
