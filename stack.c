@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 13:44:02 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/05 21:33:55 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/07 19:05:29 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,19 @@ t_stack	*init_stack(int *tab, int size)
 	t_stack	*stack;
 	t_list	*current;
 
-	
-
 	i = 1;
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
 		return (NULL);
 	current = ft_lstnew(tab[0]); // current vaut lstnew du tab de i ++
-	stack->first = current;      // le premier nnoeud de la liste vaut current
+	if (!current)
+		return (free(stack), NULL);
+	stack->first = current; // le premier nnoeud de la liste vaut current
 	while (i < size)
 	{
 		current->next = ft_lstnew(tab[i++]);
+		if (!current->next)
+			return (free_stack(stack), NULL);
 		current->next->prev = current;
 		// car le pointeur previous du next de current point vers current
 		current = current->next;
@@ -44,7 +46,7 @@ t_stack	*init_stack(int *tab, int size)
 
 // 	i = 1;
 // 	while (i < size - 1)
-// 	{
+// 	{s
 // 		init_stack(str[i], size);
 // 	}
 // 	return ()
@@ -62,10 +64,9 @@ int	parse_arg(char *arg, int *result, int *number)
 	{
 		result[*number] = ft_atoi(words[i]);
 		(*number)++;
-		free(words[i]);
 		i++;
 	}
-	free(words);
+	ft_free(words);
 	return (1);
 }
 int	*parsing_fill(char **str, int ac)
@@ -87,10 +88,7 @@ int	*parsing_fill(char **str, int ac)
 	while (i < ac)
 	{
 		if (!parse_arg(str[i], result, &j))
-		{
-			free(result);
-			return (NULL);
-		}
+			return (free(result), NULL);
 		i++;
 	}
 	return (result);
@@ -98,8 +96,27 @@ int	*parsing_fill(char **str, int ac)
 
 int	main(int ac, char **av)
 {
-	print_list(init_stack(parsing_fill(av, ac), ac - 1));
-	// for (int i = 0; i < size; i++)
-	// 	printf("%d\n", arr[i]);
-	return (0);
+	int		*parsed;
+	t_stack	*stack;
+
+	if (ac > 1)
+	{
+		if (check(av, ac) == 0)
+		{
+			parsed = parsing_fill(av, ac);
+			if (!parsed)
+				return (1);
+			stack = init_stack(parsed, ac - 1);
+			print_list(stack);
+			if (stack)
+				free_stack(stack);
+			free(parsed);
+			// free_stack((init_stack(parsing_fill(av, ac), ac - 1)));
+			// for (int i = 0; i < size; i++)
+			// 	printf("%d\n", arr[i]);
+		}
+		else
+			return (printf("wrong\n"), 1);
+	}
+	return (printf("valid\n"), 0);
 }

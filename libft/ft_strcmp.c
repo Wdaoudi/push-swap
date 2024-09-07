@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/02 13:43:44 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/07 17:00:57 by wdaoudi-         ###   ########.fr       */
+/*   Created: 2024/09/07 18:37:56 by wdaoudi-          #+#    #+#             */
+/*   Updated: 2024/09/07 18:38:16 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-int	main(int ac, char **av)
+int ft_strcmp(const char *s1, const char *s2)
 {
-    int i = 0;
-    if (ac>2)
-    {
-        if (check(av,ac) == 1)
-            return (0);
-        
-        free_stack;
-    }
-    return (0);
-}
+    unsigned char *us1;
+    unsigned char *us2;
 
-/*1. check + ajouter une verification de 
- 2. init stack / filling it : pas oublie de bien free dans le main surttout les etapes intermediaire
- 3. implementation des mouvement dans l algo 
- 4.  xxx
- 5. free_stack*/
+    us1 = (unsigned char *)s1;
+    us2 = (unsigned char *)s2;
+    while (*us1 && (*us1 == *us2))
+    {
+        us1++;
+        us2++;
+    }
+    return (*us1 - *us2);
+}

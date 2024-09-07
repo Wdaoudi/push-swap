@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:22:54 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/04 20:06:29 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/07 18:56:29 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,54 @@ long	ft_atoispe(const char *nptr)
 	if ((nbr * signe > 2147483647) || (nbr * signe < -2147483648))
 		return (nbr + nbr);
 	return (nbr * signe);
+}
+void	free_stack(t_stack *stack)
+{
+	t_list	*current;
+	t_list	*next;
+
+	if (!stack)
+		return ;
+	current = stack->first;
+	while (current)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+	free(stack);
+}
+
+
+int ft_atoi_strict(const char *str, int *error)
+{
+    long result;
+    int sign;
+
+    result = 0;
+    sign = 1;
+    while (ft_isspace(*str))
+        str++;
+    if (*str == '-' || *str == '+')
+        sign = (*str++ == '-') ? -1 : 1;
+    if (!*str)
+    {
+        *error = 1;
+        return (0);
+    }
+    while (*str)
+    {
+        if (*str < '0' || *str > '9')
+        {
+            *error = 1;
+            return (0);
+        }
+        result = result * 10 + (*str++ - '0');
+        if (result * sign > INT_MAX || result * sign < INT_MIN)
+        {
+            *error = 1;
+            return (0);
+        }
+    }
+    return ((int)(result * sign));
 }

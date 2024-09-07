@@ -1,32 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/02 13:43:44 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/07 17:00:57 by wdaoudi-         ###   ########.fr       */
+/*   Created: 2024/09/07 18:54:44 by wdaoudi-          #+#    #+#             */
+/*   Updated: 2024/09/07 18:54:48 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-int	main(int ac, char **av)
+int	ft_isspace(int c)
 {
-    int i = 0;
-    if (ac>2)
-    {
-        if (check(av,ac) == 1)
-            return (0);
-        
-        free_stack;
-    }
-    return (0);
+	return (c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\f'
+		|| c == '\r');
 }
-
-/*1. check + ajouter une verification de 
- 2. init stack / filling it : pas oublie de bien free dans le main surttout les etapes intermediaire
- 3. implementation des mouvement dans l algo 
- 4.  xxx
- 5. free_stack*/

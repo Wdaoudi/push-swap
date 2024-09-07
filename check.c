@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:20:54 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/05 20:13:51 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/07 18:58:16 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	check_error(char *str)
 	int	has_digit;
 	int	number;
 
-	free((number = 0, i = -1, has_digit = 0, NULL));
-	while (str[++i])
+	free((number = 0, i = 0, has_digit = 0, NULL));
+	while (str[i])
 	{
 		if (str[i] == ' ')
 			number = 0;
@@ -33,59 +33,29 @@ int	check_error(char *str)
 			free((has_digit = 1, number = 1, NULL));
 		else // if (!(str[i] >= '0' && str[i] <= '9') && str[i] != ' ')
 			return (1);
+		i++;
 	}
-	if (has_digit == 0)
-		return (1);
-	return (0);
+	return (has_digit == 0);
 }
-int	check_dup(char **parsed)
+int	check_dup(int *numbers, int count)
 {
 	int	i;
 	int	j;
-	int	comp1;
-	int	comp2;
 
 	i = 0;
-	while (parsed[i])
+	while (i < count)
 	{
 		j = i + 1;
-		while (parsed[j])
+		while (j < count)
 		{
-			// printf("in checkdup\n");
-			comp1 = ft_atoispe(parsed[i]);
-			comp2 = ft_atoispe(parsed[j]);
-			if (comp1 == comp2)
-				return (printf("Error\n"), 1);
-			// printf (" %d comp %d\n", comp1, comp2);
+			if (numbers[i] == numbers[j])
+				return (1);
 			j++;
 		}
 		i++;
 	}
 	return (0);
 }
-
-int	check_lim(int nbr)
-{
-	if (nbr < -2147483648 || nbr > 2147483647)
-		return (1);
-	return (0);
-}
-
-
-int	free_parsed(char **parsed)
-{
-	int	i;
-
-	i = 0;
-	while (parsed[i])
-	{
-		free(parsed[i]);
-		i++;
-	}
-	free(parsed);
-	return (1);
-}
-
 int	check_limits(char **parsed)
 {
 	int		i;
@@ -94,78 +64,80 @@ int	check_limits(char **parsed)
 	i = 0;
 	while (parsed[i])
 	{
-		num = ft_atoispe(parsed[i]);
-		if (num > INT_MAX || num < INT_MIN)
-		{
-			ft_printf("overflow\n");
-			return (free_parsed(parsed));
-		}
+		num = ft_atol(parsed[i]);
+		if (num < -2147483648 || num > 2147483647)
+			return (1);
 		i++;
 	}
 	return (0);
 }
 
-int	parse_and_check(char **str, int ac)
+char	**parse_input(char **av, int ac)
 {
 	char	**parsed;
 	int		i;
 
 	if (ac == 2)
-	{
-		if (check_error(str[1]))
-			return (ft_printf("Error bad input\n"), 1);
-		parsed = ft_split(str[1], ' ');
-	}
+		parsed = ft_split(av[1], ' ');
 	else
 	{
-		i = 1;
-		while (i < ac)
+		parsed = malloc(sizeof(char *) * ac);
+		if (!parsed)
+			return (NULL);
+		i = 0;
+		while (i < ac - 1)
 		{
-			if (check_error(str[i]))
-				return (ft_printf("Error bad input\n"), 1);
+			parsed[i] = ft_strdup(av[i + 1]);
+			if (!parsed)
+				return (ft_free(parsed), NULL);
 			i++;
 		}
-		parsed = parsing(str, ac);
+		parsed[i] = NULL;
 	}
-	if (!parsed)
-		return (ft_printf("Memory allocation error\n"), 1);
-	if (check_limits(parsed) || check_dup(parsed) || free_parsed(parsed))
-		return (1);
-	return (0);
+	return (parsed);
 }
 
+int	parse_and_check(char **av, int ac)
+{
+	int		*numbers;
+	int		count;
+	int		error;
+	int		i;
+	char	**split;
+	int		j;
+
+	numbers = malloc(sizeof(int) * (ac - 1));
+	if (!numbers)
+		return (1);
+	count = 0;
+	i = 1;
+	while (i < ac)
+	{
+		split = ft_split(av[i], ' ');
+		if (!split)
+			return (free(numbers), 1);
+		j = 0;
+		while (split[j])
+		{
+			error = 0;
+			numbers[count] = ft_atoi_strict(split[j], &error);
+			if (error)
+				return (ft_free(split), 1);
+			count++;
+			j++;
+		}
+		ft_free(split);
+		i++;
+	}
+	if (check_dup(numbers, count))
+	{
+		free(numbers);
+		return (1);
+	}
+	free(numbers);
+	return (0);
+}
 int	check(char **str, int ac)
 {
 	return (parse_and_check(str, ac));
-}
-
-/*1. check error OK
-2. parsing
-2.1 creer un tableau geant avec tout les array suivi d un espace
-2.2 split le tableau
-2.3 atoi chaque membre du tableau
-3. check limit
-4. atoi
-5. check duplicate*/
-
-int	main(int ac, char **av)
-{
-	if (ac > 1)
-	{
-		int result = check(av, ac);
-		if (result == 0)
-			printf("valid\n");
-	}
-	// while (i < ac)
-	// {
-	// 	result = check_error(av[i]);
-	// 	if (result == 1)
-	// 	{
-	// 		printf("error\n");
-	// 		return (0);
-	// 	}
-	// 	i++;
-	// }
-	// 	printf("valid\n");
-	return (0);
 }

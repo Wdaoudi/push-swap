@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:12:48 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/05 21:32:26 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/07 19:05:51 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,18 +102,20 @@ int	lenght_word(char const *s, char c, int i)
 	return (n);
 }
 
-void	*ft_free(char **str, int count)
+void	ft_free(char **str)
 {
 	int	i;
 
 	i = 0;
-	while (i < count)
+	if (!str)
+		return ;
+	while (str[i])
 	{
 		free(str[i]);
 		i++;
 	}
 	free(str);
-	return (NULL);
+	return ;
 }
 
 char	**slip(char const *s, char c, char **str)
@@ -131,7 +133,7 @@ char	**slip(char const *s, char c, char **str)
 		k = 0;
 		str[j] = malloc((lenght_word(s, c, i) + 1) * sizeof(char));
 		if (str[j] == NULL)
-			return (ft_free(str, j));
+			return (ft_free(str), NULL);
 		while (s[i] && s[i] != c)
 			str[j][k++] = s[i++];
 		str[j][k] = 0;
@@ -152,7 +154,9 @@ char	**ft_split(char const *s, char c)
 	str = malloc(sizeof(char *) * (count_words(s, c) + 1));
 	if (str == NULL)
 		return (str);
-	return (slip(s, c, str));
+	if (!slip(s, c, str))
+		ft_free(str);
+	return (str);
 }
 int	ft_atoi(const char *nptr)
 {
@@ -179,7 +183,6 @@ int	ft_atoi(const char *nptr)
 	}
 	return (nbr * signe);
 }
-
 
 t_list	*ft_lstnew(int content)
 {
@@ -210,3 +213,34 @@ void	print_list(t_stack *stack)
 		current = current->next; // Passer au nœud suivant
 	}
 }
+
+// long	ft_atol(char *str)
+// {
+// 	long	result;
+// 	int		sign;
+
+// 	result = 0;
+// 	sign = 1;
+// 	while ((*str))
+// 		str++;
+// 	if (*str == '-' || *str == '+')
+// 	{
+// 		if (*str == '-')
+// 			sign = -1;
+// 		str++;
+// 	}
+// 	while (ft_isdigit(*str))
+// 	{
+// 		result = result * 10 + (*str - '0');
+// 		str++;
+// 	}
+// 	return (result * sign);
+// }
+
+// int	ft_isdigit(int c)
+// {
+// 	if (c >= 48 && c <= 57)
+// 		return (1);
+// 	else
+// 		return (0);
+// }

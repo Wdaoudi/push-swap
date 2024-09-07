@@ -1,6 +1,9 @@
 SRCS =	parsing.c \
-		check.c \
+				stack.c\
 		utils.c \
+		check.c \
+		temporaire.c \
+
 # mettre les differents noms de fichier de type ft_*\
 
 NAME = push_swap
