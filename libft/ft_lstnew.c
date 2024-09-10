@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 17:54:47 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/05 18:05:02 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/10 13:37:15 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ t_list	*ft_lstnew(int content)
 		return (NULL);
 	new->content = content;
 	new->next = NULL;
-	new->prev = NULL;
 	return (new);
 }
 

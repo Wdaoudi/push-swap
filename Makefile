@@ -1,5 +1,6 @@
 SRCS =	parsing.c \
 				stack.c\
+		moove.c \
 		utils.c \
 		check.c \
 		temporaire.c \

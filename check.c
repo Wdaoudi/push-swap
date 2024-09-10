@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:20:54 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/07 18:58:16 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/10 16:33:27 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,5 +139,12 @@ int	parse_and_check(char **av, int ac)
 }
 int	check(char **str, int ac)
 {
-	return (parse_and_check(str, ac));
+	int i;
+	i = parse_and_check(str,ac);
+	if (i == 1)
+	{
+		printf("Error\n");
+		return (1);
+	}
+	return (0);
 }

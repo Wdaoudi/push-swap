@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:22:54 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/07 18:56:29 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/10 16:45:39 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,14 @@ long	ft_atoispe(const char *nptr)
 		return (nbr + nbr);
 	return (nbr * signe);
 }
-void	free_stack(t_stack *stack)
+void	free_stack(t_list *stack)
 {
 	t_list	*current;
 	t_list	*next;
 
 	if (!stack)
 		return ;
-	current = stack->first;
+	current = stack;
 	while (current)
 	{
 		next = current->next;

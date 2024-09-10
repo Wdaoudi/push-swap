@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 13:44:02 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/07 19:18:50 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/10 16:44:50 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,25 @@
 
 // implementer les focntions push, pop, isempty, top
 
-t_stack	*init_stack(int *tab, int size)
+t_list	*init_stack(int *tab, int size)
 {
 	int		i;
-	t_stack	*stack;
-	t_list	*current;
+	t_list	*listt;
+	t_list	*maillon;
 
-	i = 1;
-	stack = malloc(sizeof(t_stack));
-	if (!stack)
-		return (NULL);
-	current = ft_lstnew(tab[0]); // current vaut lstnew du tab de i ++
-	if (!current)
-		return (free(stack), NULL);
-	stack->first = current; // le premier nnoeud de la liste vaut current
+	i = 0;
+	listt = NULL;
 	while (i < size)
 	{
-		current->next = ft_lstnew(tab[i++]);
-		if (!current->next)
-			return (free_stack(stack), NULL);
-		current->next->prev = current;
-		// car le pointeur previous du next de current point vers current
-		current = current->next;
-		// current deviens le maillon d apres on fait avancer de un
+		maillon = ft_lstnew(tab[i++]);
+		if (!maillon)
+		{
+			free_stack(listt);
+			return (NULL);
+		}
+		ft_lstadd_back(&listt, maillon);
 	}
-	return (stack);
+	return (listt);
 }
 // int	*fil_tab(char **str, int size)
 // {
@@ -94,29 +88,29 @@ int	*parsing_fill(char **str, int ac)
 	return (result);
 }
 
-int	main(int ac, char **av)
-{
-	int		*parsed;
-	t_stack	*stack;
+// int	main(int ac, char **av)
+// {
+// 	int		*parsed;
+// 	t_stack	*stack;
 
-	if (ac > 1)
-	{
-		if (check(av, ac) == 0)
-		{
-			parsed = parsing_fill(av, ac);
-			if (!parsed)
-				return (1);
-			stack = init_stack(parsed, ac - 1);
-			print_list(stack);
-			if (stack)
-				free_stack(stack);
-			free(parsed);
-			// free_stack((init_stack(parsing_fill(av, ac), ac - 1)));
-			// for (int i = 0; i < size; i++)
-			// 	printf("%d\n", arr[i]);
-		}
-		else
-			return (printf("wrong\n"), 1);
-	}
-	return (printf("valid\n"), 0);
-}
+// 	if (ac > 1)
+// 	{
+// 		if (check(av, ac) == 0)
+// 		{
+// 			parsed = parsing_fill(av, ac);
+// 			if (!parsed)
+// 				return (1);
+// 			stack = init_stack(parsed, ac - 1);
+// 			print_list(stack);
+// 			if (stack)
+// 				free_stack(stack);
+// 			free(parsed);
+// 			// free_stack((init_stack(parsing_fill(av, ac), ac - 1)));
+// 			// for (int i = 0; i < size; i++)
+// 			// 	printf("%d\n", arr[i]);
+// 		}
+// 		else
+// 			return (printf("wrong\n"), 1);
+// 	}
+// 	return (printf("valid\n"), 0);
+// }

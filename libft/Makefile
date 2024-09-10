@@ -6,7 +6,7 @@
 #    By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/28 20:49:13 by wdaoudi-          #+#    #+#              #
-#    Updated: 2024/09/07 18:55:29 by wdaoudi-         ###   ########.fr        #
+#    Updated: 2024/09/10 16:33:07 by wdaoudi-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ SRCS = ft_memset.c        \
         ft_strcmp.c \
         ft_isspace.c \
         ft_lstnew.c            \
-     #   ft_lstadd_front.c    \
+        ft_lstadd_front.c    \
         ft_lstsize.c        \
         ft_lstlast.c        \
         ft_lstadd_back.c    \
