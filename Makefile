@@ -1,9 +1,11 @@
 SRCS =	parsing.c \
 				stack.c\
-		moove.c \
+		push.c \
 		utils.c \
 		check.c \
 		temporaire.c \
+		swap.c \
+		
 
 # mettre les differents noms de fichier de type ft_*\
 

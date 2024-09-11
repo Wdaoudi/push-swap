@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:22:54 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/10 16:45:39 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/11 14:15:06 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ char	*ft_strcat(char *dest, const char *src)
 	*ptr = '\0';
 	return (dest);
 }
+
 long	ft_atoispe(const char *nptr)
 {
 	long	nbr;
@@ -55,6 +56,7 @@ long	ft_atoispe(const char *nptr)
 		return (nbr + nbr);
 	return (nbr * signe);
 }
+
 void	free_stack(t_list *stack)
 {
 	t_list	*current;
@@ -72,36 +74,50 @@ void	free_stack(t_list *stack)
 	free(stack);
 }
 
-
-int ft_atoi_strict(const char *str, int *error)
+static int	ft_atoi_strict_helper(const char *str, int *error, long *result,
+		int *sign)
 {
-    long result;
-    int sign;
+	*result = 0;
+	*sign = 1;
+	while (ft_isspace(*str))
+		str++;
+	if (*str == '-')
+	{
+		*sign = -1;
+		str++;
+	}
+	else if (*str == '+')
+		str++;
+	if (!*str)
+	{
+		*error = 1;
+		return (0);
+	}
+	return (1);
+}
 
-    result = 0;
-    sign = 1;
-    while (ft_isspace(*str))
-        str++;
-    if (*str == '-' || *str == '+')
-        sign = (*str++ == '-') ? -1 : 1;
-    if (!*str)
-    {
-        *error = 1;
-        return (0);
-    }
-    while (*str)
-    {
-        if (*str < '0' || *str > '9')
-        {
-            *error = 1;
-            return (0);
-        }
-        result = result * 10 + (*str++ - '0');
-        if (result * sign > INT_MAX || result * sign < INT_MIN)
-        {
-            *error = 1;
-            return (0);
-        }
-    }
-    return ((int)(result * sign));
+int	ft_atoi_strict(const char *str, int *error)
+{
+	long	result;
+	int		sign;
+
+	*error = 0;
+	if (!ft_atoi_strict_helper(str, error, &result, &sign))
+		return (0);
+	while (*str)
+	{
+		if (*str < '0' || *str > '9')
+		{
+			*error = 1;
+			return (0);
+		}
+		result = result * 10 + (*str - '0');
+		if (result * sign > INT_MAX || result * sign < INT_MIN)
+		{
+			*error = 1;
+			return (0);
+		}
+		str++;
+	}
+	return ((int)(result * sign));
 }

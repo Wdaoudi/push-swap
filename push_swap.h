@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 13:43:34 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/10 16:45:17 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/11 15:34:30 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,9 @@ int					*parsing_fill(char **str, int ac);
 t_list				*init_stack(int *tab, int size);
 
 // fonctions de mouvements
-
-
+void				push_b(t_stacks *stack);
+void				push_a(t_stacks *stack);
+void	swap_a(t_stack *a);
 // temporaire
 // size_t				ft_strlen(const char *str);
 // char				*ft_strjoin(char const *s1, char const *s2);

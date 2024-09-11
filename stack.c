@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 13:44:02 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/10 16:44:50 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/11 15:50:02 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ t_list	*init_stack(int *tab, int size)
 		}
 		ft_lstadd_back(&listt, maillon);
 	}
+	// while (size > 0)
+	// {
+	// 	free_stack(maillon);
+	// }
 	return (listt);
 }
 // int	*fil_tab(char **str, int size)
@@ -88,29 +92,44 @@ int	*parsing_fill(char **str, int ac)
 	return (result);
 }
 
-// int	main(int ac, char **av)
-// {
-// 	int		*parsed;
-// 	t_stack	*stack;
+int	main(int ac, char **av)
+{
+	int			*parsed;
+	t_stack stack_a, stack_b;
 
-// 	if (ac > 1)
-// 	{
-// 		if (check(av, ac) == 0)
-// 		{
-// 			parsed = parsing_fill(av, ac);
-// 			if (!parsed)
-// 				return (1);
-// 			stack = init_stack(parsed, ac - 1);
-// 			print_list(stack);
-// 			if (stack)
-// 				free_stack(stack);
-// 			free(parsed);
-// 			// free_stack((init_stack(parsing_fill(av, ac), ac - 1)));
-// 			// for (int i = 0; i < size; i++)
-// 			// 	printf("%d\n", arr[i]);
-// 		}
-// 		else
-// 			return (printf("wrong\n"), 1);
-// 	}
-// 	return (printf("valid\n"), 0);
-// }
+	if (ac > 1)
+	{
+		if (check(av, ac) == 0)
+		{
+			parsed = parsing_fill(av, ac);
+			if (!parsed)
+				return (1);
+			stack_a.head = init_stack(parsed, ac - 1);
+			stack_b.head = NULL;
+			free(parsed);
+			printf("avant stack a=\n");
+			print_list(stack_a.head);
+			printf("avant stack b=\n");
+			print_list(stack_b.head);
+			
+			swap_a(&stack_a);
+			
+			printf("apres stack a=\n");
+			print_list(stack_a.head);
+			printf("stack b=\n");
+			print_list(stack_b.head);
+		
+			// if (stack.a || stack.b)
+			// {
+			// 	free_stack(stack.a);
+			// 	// free_stack(stack.b);
+			// }
+			// free_stack((init_stack(parsing_fill(av, ac), ac - 1)));
+			// for (int i = 0; i < size; i++)
+			// 	printf("%d\n", arr[i]);
+		}
+		else
+			return (ft_putendl_fd("Error", 2), -1);
+	}
+	return (0);
+}
