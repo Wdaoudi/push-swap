@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 13:43:34 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/11 18:49:33 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/11 19:43:16 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ char				*ft_strcat(char *dest, const char *src);
 void				free_stack(t_list *stack);
 int					ft_atoi_strict(const char *str, int *error);
 t_list				*ft_lstlast(t_list *lst);
+t_list				*ft_second_last(t_list *head);
 
 // fonction de parsing/check
 // char				**parsingcheck(char **str, int ac);
@@ -72,6 +73,11 @@ void				ss(t_stack *stack_a, t_stack *stack_b);
 void				rotate_a(t_stack *a);
 void				rotate_b(t_stack *b);
 void				rr(t_stack *a, t_stack *b);
+void				rra(t_stack *a);
+void				rrb(t_stack *b);
+void				rrr(t_stack *a, t_stack *b);
+
+
 
 // temporaire
 // size_t				ft_strlen(const char *str);

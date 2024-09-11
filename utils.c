@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:22:54 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/11 18:17:54 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/11 19:42:18 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,4 +129,12 @@ t_list	*ft_lstlast(t_list *lst)
 	while (lst->next)
 		lst = lst->next;
 	return (lst);
+}
+t_list	*ft_second_last(t_list *head)
+{
+	if (!head || !head->next)
+		return (NULL);
+	while (head->next->next)
+		head = head->next;
+	return (head);
 }

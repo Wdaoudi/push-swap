@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 14:21:18 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/11 18:47:45 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/11 19:26:27 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,10 +105,7 @@ int	main(void)
 	print_list(stack_a->head);
 	printf("avant stack b=\n");
 	print_list(stack_b->head);
-	push_a(stack_a,stack_b);
-	push_a(stack_a,stack_b);
-	push_a(stack_a,stack_b);
-   rr(stack_a,stack_b);
+   rra(stack_a);
 	printf("apres stack a=\n");
 	print_list(stack_a->head);
 	printf("stack b=\n");
