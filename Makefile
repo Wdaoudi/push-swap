@@ -5,6 +5,7 @@ SRCS =	parsing.c \
 		check.c \
 		temporaire.c \
 		swap.c \
+		rotate.c \
 		
 
 # mettre les differents noms de fichier de type ft_*\

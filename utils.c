@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:22:54 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/11 14:15:06 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/11 18:17:54 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,4 +120,13 @@ int	ft_atoi_strict(const char *str, int *error)
 		str++;
 	}
 	return ((int)(result * sign));
+}
+
+t_list	*ft_lstlast(t_list *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }

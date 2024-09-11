@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 13:43:34 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/11 15:34:30 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/11 18:49:33 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ typedef struct s_stack
 	struct s_list	*head;
 	int				size;
 }					t_stack;
-
 typedef struct s_stacks
 {
 	struct s_list	*a;
@@ -48,6 +47,7 @@ long				ft_atoispe(const char *nptr);
 char				*ft_strcat(char *dest, const char *src);
 void				free_stack(t_list *stack);
 int					ft_atoi_strict(const char *str, int *error);
+t_list				*ft_lstlast(t_list *lst);
 
 // fonction de parsing/check
 // char				**parsingcheck(char **str, int ac);
@@ -64,9 +64,15 @@ int					*parsing_fill(char **str, int ac);
 t_list				*init_stack(int *tab, int size);
 
 // fonctions de mouvements
-void				push_b(t_stacks *stack);
-void				push_a(t_stacks *stack);
-void	swap_a(t_stack *a);
+void				push_b(t_stack *stack_a, t_stack *stack_b);
+void				push_a(t_stack *stack_a, t_stack *stack_b);
+void				swap_a(t_stack *a);
+void				swap_b(t_stack *b);
+void				ss(t_stack *stack_a, t_stack *stack_b);
+void				rotate_a(t_stack *a);
+void				rotate_b(t_stack *b);
+void				rr(t_stack *a, t_stack *b);
+
 // temporaire
 // size_t				ft_strlen(const char *str);
 // char				*ft_strjoin(char const *s1, char const *s2);
