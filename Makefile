@@ -1,5 +1,5 @@
-SRCS =	parsing.c \
-				stack.c\
+SRCS =	algo.c \
+		stack.c\
 		push.c \
 		utils.c \
 		check.c \
@@ -7,6 +7,7 @@ SRCS =	parsing.c \
 		swap.c \
 		rotate.c \
 		reverse_rotate.c\
+		pivot.c \
 		
 
 # mettre les differents noms de fichier de type ft_*\

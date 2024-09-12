@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:22:54 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/11 19:42:18 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/12 14:05:37 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,3 +138,4 @@ t_list	*ft_second_last(t_list *head)
 		head = head->next;
 	return (head);
 }
+
