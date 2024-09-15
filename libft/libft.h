@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 14:28:19 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/10 16:38:36 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/12 18:45:58 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 typedef struct s_list
 {
 	int				content;
-	int				index;
 	int				cost;
 	struct s_list	*target;
 	struct s_list	*next;

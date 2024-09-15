@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:12:48 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/10 16:39:47 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/13 01:18:13 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -220,7 +220,6 @@ void	print_list(t_list *stack)
 		current = current->next;// Passer au nœud suivant
 	}
 }
-
 // long	ft_atol(char *str)
 // {
 // 	long	result;

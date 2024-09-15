@@ -6,58 +6,94 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:22:54 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/12 14:05:37 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/13 01:44:25 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*ft_strcat(char *dest, const char *src)
+long	ft_atoi_spe(char *str)
 {
-	char	*ptr;
-
-	ptr = dest;
-	while (*ptr != '\0')
-		ptr++;
-	while (*src != '\0')
-	{
-		*ptr = *src;
-		ptr++;
-		src++;
-	}
-	*ptr = '\0';
-	return (dest);
-}
-
-long	ft_atoispe(const char *nptr)
-{
-	long	nbr;
-	long	i;
-	int		signe;
+	size_t		i;
+	long int	res;
+	int			sign;
 
 	i = 0;
-	signe = 1;
-	nbr = 0;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
-		i++;
-	if (nptr[i] == 45)
+	res = 0;
+	sign = 1;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		signe = -signe;
+		if (str[i] == '-')
+			sign *= -1;
 		i++;
 	}
-	else if (nptr[i] == 43)
-		i++;
-	while (nptr[i] >= 48 && nptr[i] <= 57)
+	while (str[i] && str[i] >= '0' && str[i] <= '9')
 	{
-		nbr = (nbr * 10) + nptr[i] - '0';
+		res *= 10;
+		res += str[i] - 48;
 		i++;
+		if (res * sign > 2147483647 || res * sign < -2147483648)
+			return (2147483648);
 	}
-	if ((nbr * signe > 2147483647) || (nbr * signe < -2147483648))
-		return (nbr + nbr);
-	return (nbr * signe);
+	return (res * sign);
 }
 
-void	free_stack(t_list *stack)
+// char	*ft_strcat(char *dest, const char *src)
+// {
+// 	char	*ptr;
+
+// 	ptr = dest;
+// 	while (*ptr != '\0')
+// 		ptr++;
+// 	while (*src != '\0')
+// 	{
+// 		*ptr = *src;
+// 		ptr++;
+// 		src++;
+// 	}
+// 	*ptr = '\0';
+// 	return (dest);
+// }
+
+int	ft_isdigit_spe(char **str)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	if (str[j][0] == '\0')
+		return (0);
+	while (str[j])
+	{
+		if (str[j][0] == '-' || str[j][0] == '+')
+			i++;
+		while (str[j][i] && str[j][i] >= '0' && str[j][i] <= '9')
+			i++;
+		if (str[j][i] != '\0')
+			return (ft_putendl_fd("error", 2), 0);
+		j++;
+		i = 0;
+	}
+	return (1);
+}
+
+void	free_stack(t_stack *stack)
+{
+	t_list	*current;
+	t_list	*ptr;
+
+	current = stack->head;
+	while (current)
+	{
+		ptr = current->next;
+		free(current);
+		current = ptr;
+	}
+	free(stack);
+}
+
+void	free_list(t_list *stack)
 {
 	t_list	*current;
 	t_list	*next;
@@ -74,68 +110,95 @@ void	free_stack(t_list *stack)
 	free(stack);
 }
 
-static int	ft_atoi_strict_helper(const char *str, int *error, long *result,
-		int *sign)
+char	*ft_strjoin_free(char *s1, char *s2)
 {
-	*result = 0;
-	*sign = 1;
-	while (ft_isspace(*str))
-		str++;
-	if (*str == '-')
+	char	*str;
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = 0;
+	str = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * (sizeof(char)));
+	if (!str)
+		return (free(s1), NULL);
+	while (s1[i])
 	{
-		*sign = -1;
-		str++;
+		str[j] = s1[i];
+		i++;
+		j++;
 	}
-	else if (*str == '+')
-		str++;
-	if (!*str)
+	i = 0;
+	while (s2[i])
 	{
-		*error = 1;
+		str[j] = s2[i];
+		i++;
+		j++;
+	}
+	str[j] = '\0';
+	free(s1);
+	return (str);
+}
+
+int	ft_isdigit_string(char *str)
+{
+	int	j;
+
+	j = 0;
+	if (str[j] == '\0')
 		return (0);
+	while (str[j])
+	{
+		if (str[j] == '-' || str[j] == '+')
+			j++;
+		while (str[j] && str[j] >= '0' && str[j] <= '9')
+			j++;
+		if (str[j] != '\0')
+			return (0);
 	}
 	return (1);
 }
-
-int	ft_atoi_strict(const char *str, int *error)
+int	ft_strlen_tab(char **res)
 {
-	long	result;
-	int		sign;
+	int	i;
 
-	*error = 0;
-	if (!ft_atoi_strict_helper(str, error, &result, &sign))
+	i = 0;
+	if (!res)
 		return (0);
-	while (*str)
-	{
-		if (*str < '0' || *str > '9')
-		{
-			*error = 1;
-			return (0);
-		}
-		result = result * 10 + (*str - '0');
-		if (result * sign > INT_MAX || result * sign < INT_MIN)
-		{
-			*error = 1;
-			return (0);
-		}
-		str++;
-	}
-	return ((int)(result * sign));
+	while (res[i])
+		i++;
+	return (i);
 }
 
-t_list	*ft_lstlast(t_list *lst)
-{
-	if (!lst)
-		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
-}
-t_list	*ft_second_last(t_list *head)
-{
-	if (!head || !head->next)
-		return (NULL);
-	while (head->next->next)
-		head = head->next;
-	return (head);
-}
+// void	display_stack(t_stack *lst)
+// {
+// 	t_list	*current;
+
+// 	current = lst->head;
+// 	if (current == NULL)
+// 	{
+// 		printf("la liste est vide\n");
+// 		return ;
+// 	}
+// 	while (current)
+// 	{
+// 		printf("[%d]\n", current->content);
+// 		current = current->next;
+// 	}
+// }
+
+// int	ft_lstsize(t_stack *lst)
+// {
+// 	t_list	*current;
+// 	int		i;
+
+// 	i = 0;
+// 	current = lst->head;
+// 	while (current)
+// 	{
+// 		current = current->next;
+// 		i++;
+// 	}
+// 	return (i);
+// }
+
 

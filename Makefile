@@ -1,5 +1,4 @@
-SRCS =	algo.c \
-		stack.c\
+SRCS =	stack.c\
 		push.c \
 		utils.c \
 		check.c \
@@ -8,6 +7,12 @@ SRCS =	algo.c \
 		rotate.c \
 		reverse_rotate.c\
 		pivot.c \
+		utils_sort.c \
+		algo.c \
+		bigshort.c \
+		smallshort.c \
+		cost.c \
+		push_swap.c \
 		
 
 # mettre les differents noms de fichier de type ft_*\

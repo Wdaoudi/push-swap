@@ -6,143 +6,123 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:20:54 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/11 14:43:23 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/13 15:46:54 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_error(char *str)
-{
-	int	i;
-	int	has_digit;
-	int	number;
-
-	free((number = 0, i = 0, has_digit = 0, NULL));
-	while (str[i])
-	{
-		if (str[i] == ' ')
-			number = 0;
-		else if (str[i] == '-' || str[i] == '+')
-		{
-			if (number || !(str[i + 1] >= '0' && str[i + 1] <= '9'))
-				return (1);
-			number = 1;
-		}
-		else if (str[i] >= '0' && str[i] <= '9')
-			free((has_digit = 1, number = 1, NULL));
-		else // if (!(str[i] >= '0' && str[i] <= '9') && str[i] != ' ')
-			return (1);
-		i++;
-	}
-	return (has_digit == 0);
-}
-int	check_dup(int *numbers, int count)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < count)
-	{
-		j = i + 1;
-		while (j < count)
-		{
-			if (numbers[i] == numbers[j])
-				return (1);
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
-int	check_limits(char **parsed)
+char	*ft_input(char **av)
 {
 	int		i;
-	long	num;
+	char	*str;
+	char	*space;
 
-	i = 0;
-	while (parsed[i])
+	space = ft_strdup(" ");
+	if (space == NULL)
+		return (NULL);
+	i = 1;
+	str = ft_strdup(av[i]);
+	if (!str)
+		return (free(space), NULL);
+	while (av[i + 1])
 	{
-		num = ft_atol(parsed[i]);
-		if (num < -2147483648 || num > 2147483647)
-			return (1);
+		str = ft_strjoin_free(str, space);
+		if (!str)
+			return (free(space), NULL);
+		str = ft_strjoin_free(str, av[i + 1]);
+		if (!str)
+			return (free(space), NULL);
 		i++;
 	}
-	return (0);
+	free(space);
+	return (str);
 }
 
-char	**parse_input(char **av, int ac)
+int	ft_check_str(char **res)
 {
-	char	**parsed;
-	int		i;
+	int			i;
+	int			j;
+	long int	nb1;
+	long int	nb2;
 
-	if (ac == 2)
-		parsed = ft_split(av[1], ' ');
-	else
+	j = -1;
+	nb1 = 0;
+	nb2 = 0;
+	if (ft_isdigit_spe(res) == 0)
+		return (0);
+	while (res[++j])
 	{
-		parsed = malloc(sizeof(char *) * ac);
-		if (!parsed)
-			return (NULL);
-		i = 0;
-		while (i < ac - 1)
+		i = j + 1;
+		nb1 = ft_atoi_spe(res[j]);
+		if (nb1 == 2147483648)
+			return (0);
+		while (res[i])
 		{
-			parsed[i] = ft_strdup(av[i + 1]);
-			if (!parsed)
-				return (ft_free(parsed), NULL);
+			nb2 = ft_atoi_spe(res[i]);
+			if (nb1 == nb2 || nb1 >= 2147483648 || nb2 >= 2147483648)
+				return (ft_putendl_fd("error", 2), 0);
 			i++;
 		}
-		parsed[i] = NULL;
 	}
-	return (parsed);
+	return (1);
 }
 
-int	parse_and_check(char **av, int ac)
+int	*ft_valid(int ac, char **av, t_stack **lst)
 {
-	int		*numbers;
-	int		count;
-	int		error;
-	int		i;
-	char	**split;
-	int		j;
+	char	**res;
+	int		*tab;
 
-	numbers = malloc(sizeof(int) * (ac - 1));
-	if (!numbers)
-		return (1);
-	count = 0;
-	i = 1;
-	while (i < ac)
-	{
-		split = ft_split(av[i], ' ');
-		if (!split)
-			return (free(numbers), 1);
-		j = 0;
-		while (split[j])
-		{
-			error = 0;
-			numbers[count] = ft_atoi_strict(split[j], &error);
-			if (error)
-				return (ft_free(split), 1);
-			count++;
-			j++;
-		}
-		ft_free(split);
-		i++;
-	}
-	if (check_dup(numbers, count))
-	{
-		free(numbers);
-		return (1);
-	}
-	free(numbers);
-	return (0);
+	res = ft_parsing(ac, av);
+	if (!res)
+		return (NULL);
+	*lst = ft_init_stack();
+	if (!*lst)
+		return (ft_free(res), NULL);
+	tab = ft_init_tab(res, *lst);
+	if (!tab)
+		return (ft_free(res), free_stack(*lst), NULL);
+	return (ft_free(res), tab);
 }
-int	check(char **str, int ac)
+
+char	**ft_parsing(int ac, char **av)
 {
-	int	i;
+	char	*str;
+	char	**res;
+	// int		i;
 
-	i = parse_and_check(str, ac);
-	if (i == 1)
-		return (1);
-	return (0);
+	// i = 0;
+	if (ac > 1)
+	{
+		str = ft_input(av);
+		if (!str)
+			return (free(str), NULL);
+		res = ft_split(str, ' ');
+		if (!res)
+			return (free(str), NULL);
+		if (ft_check_str(res) == 0)
+			return (free(str), ft_free(res), NULL);
+		else
+			return (free(str), res);
+	}
+	return (NULL);
 }
+
+// int main(int ac, char **av)
+// {
+// 	char **res;
+// 	int *tab;
+// 	int i = 0;
+// 	res = ft_parsing(ac,av);
+// 	if (!res)
+// 		return (0);
+// 	tab = ft_init_tab(res);
+// 	while (res[i])
+// 	{
+// 		printf("%d\n", tab[i]);
+// 		i++;
+// 	}
+// 	ft_free_tab(res);
+// 	free (tab);
+// 	return (0);
+// }
