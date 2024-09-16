@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 12:03:51 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/14 16:13:27 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/16 18:39:25 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ void	insert(t_stacks *stack)
 	rotate_top(closest,stack->a, stack);
 	push_a(stack->a, stack->b);
 }
-// verifier le rotate top
-void	rotate_top(t_list *node, t_stack *stack,t_stacks *both) // suppression de la SIZE A VOIr l effet
+
+void	rotate_top(t_list *node, t_stack *stack,t_stacks *both)
 {
-	if (determine_index(node, stack) > (ft_lstsize(stack->head)/ 2))
+	if (determine_index(node, stack) > (ft_lstsize(stack->head)/2))
 	{
 		while (stack->head != node)
 		{
@@ -60,7 +60,7 @@ t_list	*find_cheapest(t_stack *stack)
 	cheapest = stack->head;
 	while (current != NULL)
 	{
-		if (current->content < cheapest->cost)
+		if (current->cost < cheapest->cost)
 			cheapest = current;
 		current = current->next;
 	}

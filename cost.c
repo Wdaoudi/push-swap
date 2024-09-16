@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 19:10:11 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/12 19:39:34 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/16 18:38:15 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	cost_all_list(t_stack *stack_a, t_stack *stack_b)
 	t_list	*lst;
 
 	lst = stack_b->head;
-	while (lst)
+	while (lst != NULL)
 	{
-		lst->content = cost(lst, stack_a, stack_b);
+		lst->cost = cost(lst, stack_a, stack_b);
 		lst = lst->next;
 	}
 }
@@ -33,8 +33,8 @@ int	cost(t_list *lst, t_stack *stack_a, t_stack *stack_b)
 		lst->target = find_low(stack_a);
 	else
 		lst->target = highest(lst, stack_a);
-	cost = cost_top(lst->target, stack_a) + cost;
-	cost++;
+	cost += cost_top(lst->target, stack_a);
+	++cost;
 	return (cost);
 }
 
@@ -47,8 +47,7 @@ int	cost_top(t_list *lst, t_stack *stack)
 	cost = 0;
 	current = lst;
 	index = determine_index(lst, stack);
-	if (index > ft_lstsize(stack->head) / 2)
-	//verifier le fonctionnement de lstsize
+	if (index > stack_lenght(stack) / 2) // ,probleme au niveau de la determination de la taille 
 	{
 		while (current->next)
 		{
@@ -70,10 +69,10 @@ t_list	*highest(t_list *lst, t_stack *stack)
 
 	current = stack->head;
 	closest = stack->head;
-	temp = INT_MAX; // trouver comment changer
-	while (current)
+	temp = INT_MAX; 
+	while (current != NULL)
 	{
-		if (lst->content < current->content && current->content < temp)
+		if (current->content < temp  && lst->content < current->content)
 		{
 			closest = current;
 			temp = current->content;
@@ -82,3 +81,19 @@ t_list	*highest(t_list *lst, t_stack *stack)
 	}
 	return (closest);
 }
+
+int	stack_lenght(t_stack *stack)
+{
+	t_list	*node;
+	int		i;
+
+	i = 1;
+	node = stack->head->next;
+	while (node)
+	{
+		node = node->next;
+		i++;
+	}
+	return (i);
+}
+

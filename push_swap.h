@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 13:43:34 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/14 16:19:09 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/16 18:32:26 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ long				ft_atoi_spe(char *str);
 void				free_stack(t_stack *stack);
 void				free_list(t_list *lst);
 t_list				*ft_lstlast(t_list *lst);
-t_list				*ft_second_last(t_list *head);
+t_list				*ft_second_last(t_list *lst);
 int					ft_isdigit_spe(char **str);
 char				*ft_strjoin_free(char *s1, char *s2);
 int					ft_isdigit_string(char *str);
@@ -64,12 +64,13 @@ t_stack				*input_count(t_stack *lst);
 void				rotate_top(t_list *node, t_stack *stack, t_stacks *both);
 t_list				*find_cheapest(t_stack *stack);
 void				insert(t_stacks *stack);
+int	stack_lenght(t_stack *stack);
 
-// a classer 
-void	sort_stack(t_stacks *both, int size,int *tab);
-void higher_half_to_b(t_stacks *both,int size,int *tab);
-void lowest_half_to_b(t_stacks *both, int size, int *tab);
-void sort(t_stacks *both);
+// a classer
+void				sort_stack(t_stacks *both, int size, int *tab);
+void				higher_half_to_b(t_stacks *both, int size, int *tab);
+void				lowest_half_to_b(t_stacks *both, int size, int *tab);
+void				sort(t_stacks *both);
 
 // Fonctions de parsing et de vérification
 int					*ft_valid(int ac, char **av, t_stack **lst);
@@ -99,12 +100,16 @@ t_list				*highest(t_list *lst, t_stack *stack);
 // Fonctions de mouvements
 void				push_b(t_stack *stack_a, t_stack *stack_b);
 void				push_a(t_stack *stack_a, t_stack *stack_b);
+void				swap_lst(t_stack *stack);
 void				swap_a(t_stack *a);
 void				swap_b(t_stack *b);
 void				ss(t_stack *stack_a, t_stack *stack_b);
+void				ss(t_stack *stack_a, t_stack *stack_b);
+void				rotate(t_stack *stack);
 void				rotate_a(t_stack *a);
 void				rotate_b(t_stack *b);
 void				rr(t_stack *a, t_stack *b);
+void				reverse_rotate(t_stack *stack);
 void				rra(t_stack *a);
 void				rrb(t_stack *b);
 void				rrr(t_stack *a, t_stack *b);
