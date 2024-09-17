@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:22:54 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/17 16:26:58 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/17 18:21:08 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ void	free_stack(t_stack *stack)
 		free(current);
 		current = tmp;
 	}
-	free(stack);
 }
 
 void	free_list(t_list *stack)

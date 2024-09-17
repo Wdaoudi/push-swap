@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 14:58:36 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/07 16:20:59 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/17 17:59:28 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ char	**ft_split(char const *s, char c)
 	if (str == NULL)
 		return (str);
 	if (!slip(s, c, str))
-		ft_free(str);
+		return (NULL);
 	return (str);
 }
 

@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:20:54 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/17 16:45:49 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/17 18:54:15 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	ft_check_str(char **res)
 	return (1);
 }
 
-int	*ft_valid(int ac, char **av, t_stack **lst)
+int	*ft_valid(int ac, char **av, t_stack *lst)
 {
 	char	**res;
 	int		*tab;
@@ -76,12 +76,9 @@ int	*ft_valid(int ac, char **av, t_stack **lst)
 	res = ft_parsing(ac, av);
 	if (!res)
 		return (NULL);
-	*lst = ft_init_stack();
-	if (!*lst)
-		return (ft_free(res), NULL);
-	tab = ft_init_tab(res, *lst);
+	tab = ft_init_tab(res, lst);
 	if (!tab)
-		return (ft_free(res), free_stack(*lst), NULL);
+		return (ft_free(res), NULL);
 	return (ft_free(res), tab);
 }
 

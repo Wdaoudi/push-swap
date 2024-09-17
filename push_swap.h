@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 13:43:34 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/17 17:02:09 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/17 18:37:38 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ typedef struct s_stack
 
 typedef struct s_stacks
 {
-	struct s_stack	*a;
-	struct s_stack	*b;
+	struct s_stack	a;
+	struct s_stack	b;
 }					t_stacks;
 
 // Fonctions utilitaires
@@ -74,7 +74,7 @@ void				lowest_half_to_b(t_stacks *both, int size, int *tab);
 void				sort(t_stacks *both);
 
 // Fonctions de parsing et de vérification
-int					*ft_valid(int ac, char **av, t_stack **lst);
+int					*ft_valid(int ac, char **av, t_stack *lst);
 char				*ft_input(char **av);
 int					ft_check_str(char **res);
 char				**ft_parsing(int ac, char **av);

@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 13:43:44 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/17 17:13:28 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/17 18:53:23 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,56 +15,35 @@
 void	ft_free_end(int *tab, t_stack *a, t_stack *b)
 {
 	free(tab);
+	free_stack(b);
 	free_stack(a);
-	free_stack(b);
-}
-void	ft_free_end2(int *tab, t_stack *b)
-{
-	free(tab);
-	free_stack(b);
 }
 
 int	main(int ac, char **av)
 {
-	int *tab;
-	int i;
-	t_stacks *stack;
-	t_stack *a;
-	t_stack *b;
+	int			*tab;
+	int			i;
+	t_stacks	stack;
 
-	stack = NULL;
-	a = NULL;
-	b = NULL;
-	b = ft_init_stack();
-	a = ft_init_stack();
-	if (!a)
-		return (free_stack(b),0);
-	tab = ft_valid(ac, av, &a);
+	stack.a.head = NULL;
+	stack.b.head = NULL;
+	tab = ft_valid(ac, av, &stack.a);
 	if (!tab)
 		return (0);
 	i = 0;
-	while (i < a->size)
-		add_to_queue(a, tab[i++]);
-	stack = malloc(sizeof(t_stacks));
-	if (!stack)
-		return (ft_free_end(tab, a, b), 0);
-	stack->a = a;
-	stack->b = b;
-	if (is_sorted(a, b) == true)
-		return (ft_free_end(tab, a, b), 0);
-	if (a->size == 2)
+	while (i < stack.a.size)
+		add_to_queue(&stack.a, tab[i++]);
+	if (is_sorted(&stack.a, &stack.b) == true)
+		return (ft_free_end(tab, &stack.a, &stack.b), 0);
+	if (stack.a.size == 2)
 	{
-		sort_2(a, b);
-		return (ft_free_end(tab, a, b), 0);
+		sort_2(&stack.a, &stack.b);
+		return (ft_free_end(tab, &stack.a, &stack.b), 0);
 	}
-	else if (a->size == 3)
-	{
-		sort_3(a);
-		return (ft_free_end(tab, a, b), 0);
-	}
-	sort_array(tab, a->size);
-	sort_stack(stack, a->size, tab);
-	ft_free_end(tab, a, b);
-	free(stack);
+	else if (stack.a.size == 3)
+		return (sort_3(&stack.a), ft_free_end(tab, &stack.a, &stack.b), 0);
+	sort_array(tab, stack.a.size);
+	sort_stack(&stack, stack.a.size, tab);
+	ft_free_end(tab, &stack.a, &stack.b);
 	return (0);
 }
