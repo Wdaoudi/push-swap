@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 14:21:18 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/16 17:50:46 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/17 13:53:54 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void push_a(t_stack *stack_a, t_stack *stack_b)
     stack_b->head = current->next;
     current->next = stack_a->head;
     stack_a->head = current;
-    // ft_printf("pa\n");
+    ft_printf("pa\n");
 }
 
 void push_b(t_stack *stack_a, t_stack *stack_b)
@@ -59,7 +59,7 @@ void push_b(t_stack *stack_a, t_stack *stack_b)
     stack_a->head = current->next;
     current->next = stack_b->head;
     stack_b->head = current;
-    // ft_printf("pb\n");
+    ft_printf("pb\n");
 }
 
 // int	main(int ac, char **av)

@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 12:21:28 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/07/08 13:59:54 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/17 13:53:54 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,17 +72,17 @@ int	ft_printf(const char *format, ...)
 /*int	main(void)
 {
 	size_t	t = 0;
-	// ft_printf("%c",'A');
-	// ft_printf("%s\n", "Hello, World!");
+	ft_printf("%c",'A');
+	ft_printf("%s\n", "Hello, World!");
 	t = ft_printf("%p\n", (void*)LONG_MIN);
 	printf("%zu\n", t);
 	t = ft_printf("%p\n", (void*)LONG_MAX);
 	printf("%zu\n", t);
-	// ft_printf("%d\n", 123);
-	// ft_printf("%u\n", 123);
-	// ft_printf("%x\n", 42);
-	// ft_printf("%X\n", 42);
-	// ft_printf("%%\n");
+	ft_printf("%d\n", 123);
+	ft_printf("%u\n", 123);
+	ft_printf("%x\n", 42);
+	ft_printf("%X\n", 42);
+	ft_printf("%%\n");
 	// printf("%c\n", 'A');
 	// printf("%s\n", "Hello, World!");
 	t = printf("%p\n", (void*)LONG_MIN);

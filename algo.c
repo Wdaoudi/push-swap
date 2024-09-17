@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 12:03:51 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/16 18:39:25 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/17 13:45:44 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,18 @@ void	insert(t_stacks *stack)
 	t_list	*closest;
 
 	change = find_low(stack->b);
-	rotate_top(change, stack->b,stack);
+	rotate_top(change, stack->b, stack);
 	if (find_top(stack->a)->content < change->content)
 		closest = find_low(stack->a);
 	else
 		closest = highest(change, stack->a);
-	rotate_top(closest,stack->a, stack);
+	rotate_top(closest, stack->a, stack);
 	push_a(stack->a, stack->b);
 }
 
-void	rotate_top(t_list *node, t_stack *stack,t_stacks *both)
+void	rotate_top(t_list *node, t_stack *stack, t_stacks *both)
 {
-	if (determine_index(node, stack) > (ft_lstsize(stack->head)/2))
+	if (determine_index(node, stack) > (ft_lstsize(stack->head) / 2))
 	{
 		while (stack->head != node)
 		{
@@ -41,9 +41,9 @@ void	rotate_top(t_list *node, t_stack *stack,t_stacks *both)
 	}
 	else
 	{
-		while(stack->head != node)
+		while (stack->head != node)
 		{
-			if(stack == both->b)
+			if (stack == both->b)
 				rotate_b(both->b);
 			else
 				rotate_a(both->a);

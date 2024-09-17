@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 18:51:16 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/16 18:04:36 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/17 13:53:38 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void rra(t_stack *a)
     if (!(a->head) || !(a->head->next))
         return;
     reverse_rotate(a);
-    // ft_printf("rra\n");
+    ft_printf("rra\n");
 }
 
 void rrb(t_stack *b)
@@ -112,7 +112,7 @@ void rrb(t_stack *b)
     if (!(b->head) || !(b->head->next))
         return;
     reverse_rotate(b);
-    // ft_printf("rrb\n");
+    ft_printf("rrb\n");
 }
 
 void rrr(t_stack *a, t_stack *b)
@@ -121,7 +121,7 @@ void rrr(t_stack *a, t_stack *b)
         return;
     reverse_rotate(a);
     reverse_rotate(b);
-    // ft_printf("rrr\n");
+    ft_printf("rrr\n");
 }
 
 t_list *ft_second_last(t_list *lst)

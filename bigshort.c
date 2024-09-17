@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 19:41:04 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/16 18:41:07 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/17 14:07:15 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	higher_half_to_b(t_stacks *both, int size, int *tab)
 	t_stack	*stack;
 
 	stack = both->a;
-	while (find_top(stack)->content > tab[size * 1 / 2])
+	while (stack_lenght(stack) > size / 2) //find_top(stack)->content > tab[size * 1 / 2])
 	{
 		if (stack->head->content > tab[size / 4 * 3])
 		{
@@ -58,8 +58,7 @@ void	lowest_half_to_b(t_stacks *both, int size, int *tab)
 
 	stack = both->a;
 	number_input = size;
-	while (find_top(stack)->content > tab[size / 4]
-		&& ft_lstsize(stack->head) > 3)
+	while(ft_lstsize(stack->head) > 3)
 	{
 		if (stack->head->content > tab[number_input / 4])
 			push_b(both->a, both->b);

@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 13:43:44 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/16 18:42:39 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/17 13:54:13 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ int	main(int ac, char **av)
 	}
 	sort_array(tab, a->size);
 	sort_stack(stack, a->size, tab);
-	printf("liste a la fin du programme\n");
-	print_list(a->head);
+	// printf("liste a la fin du programme\n");
+	// print_list(a->head);
 	// free_stack(stack->a);
 	return (0);
 }

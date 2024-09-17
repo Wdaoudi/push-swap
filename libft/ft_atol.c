@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 17:31:42 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/07 17:48:28 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/17 13:48:28 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	ft_isspace(int c)
 
 long	ft_atol(char *str)
 {
-	long result;
-	int sign;
+	long	result;
+	int		sign;
 
 	result = 0;
 	sign = 1;
