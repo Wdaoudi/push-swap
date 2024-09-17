@@ -6,7 +6,7 @@
 #    By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/28 20:49:13 by wdaoudi-          #+#    #+#              #
-#    Updated: 2024/09/17 13:53:00 by wdaoudi-         ###   ########.fr        #
+#    Updated: 2024/09/17 16:30:14 by wdaoudi-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,7 @@ SRCS = ft_memset.c        \
         ft_lstclear.c        \
         ft_lstdelone.c        \
         ft_lstiter.c        \
+        print_list.c \
         # ft_lstmap.c            \
 
 NAME = libft.a

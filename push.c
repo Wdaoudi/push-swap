@@ -6,60 +6,36 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 14:21:18 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/17 13:53:54 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/17 16:49:18 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void	push_a(t_stack *stack_a, t_stack *stack_b)
-// {
-// 	t_list	*current;
-
-// 	if (!stack_a || !stack_a->head || !stack_b) 
-// 		return ;
-// 	current = stack_a->head;
-// 	stack_a->head = current->next;
-// 	current->next = stack_b->head;
-// 	stack_b->head = current;
-// }
-
-// void	push_b(t_stack *stack_a, t_stack *stack_b)
-// {
-// 	t_list	*current;
-
-// 	if (!stack_b || !stack_b->head || !stack_a)
-// 		return ;
-// 	current = stack_b->head;
-// 	stack_b->head = current->next;
-// 	current->next = stack_a->head;
-// 	stack_a->head = current;
-// }
-
-void push_a(t_stack *stack_a, t_stack *stack_b)
+void	push_a(t_stack *stack_a, t_stack *stack_b)
 {
-    t_list *current;
+	t_list	*current;
 
-    if (!stack_b || !stack_b->head || !stack_a) 
-        return;
-    current = stack_b->head;
-    stack_b->head = current->next;
-    current->next = stack_a->head;
-    stack_a->head = current;
-    ft_printf("pa\n");
+	if (!stack_b || !stack_b->head || !stack_a)
+		return ;
+	current = stack_b->head;
+	stack_b->head = current->next;
+	current->next = stack_a->head;
+	stack_a->head = current;
+	ft_printf("pa\n");
 }
 
-void push_b(t_stack *stack_a, t_stack *stack_b)
+void	push_b(t_stack *stack_a, t_stack *stack_b)
 {
-    t_list *current;
+	t_list	*current;
 
-    if (!stack_a || !stack_a->head || !stack_b)
-        return;
-    current = stack_a->head;
-    stack_a->head = current->next;
-    current->next = stack_b->head;
-    stack_b->head = current;
-    ft_printf("pb\n");
+	if (!stack_a || !stack_a->head || !stack_b)
+		return ;
+	current = stack_a->head;
+	stack_a->head = current->next;
+	current->next = stack_b->head;
+	stack_b->head = current;
+	ft_printf("pb\n");
 }
 
 // int	main(int ac, char **av)

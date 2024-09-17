@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 19:41:04 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/17 15:28:48 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/17 16:45:19 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,8 @@ void	higher_half_to_b(t_stacks *both, int size, int *tab)
 	t_stack	*stack;
 
 	stack = both->a;
-	while (ft_lstsize(stack->head) > size / 2 + 1) //find_top(stack)->content > tab[size * 1 / 2])
+	while (ft_lstsize(stack->head) > size / 2 + 1)
 	{
-		// printf("size = %i\n", ft_lstsize(stack->head));
 		if (stack->head->content > tab[size / 4 * 3])
 		{
 			push_b(both->a, both->b);
@@ -59,7 +58,7 @@ void	lowest_half_to_b(t_stacks *both, int size, int *tab)
 
 	stack = both->a;
 	number_input = size;
-	while(ft_lstsize(stack->head) > 3)
+	while (ft_lstsize(stack->head) > 3)
 	{
 		if (stack->head->content > tab[number_input / 4])
 			push_b(both->a, both->b);
@@ -68,14 +67,13 @@ void	lowest_half_to_b(t_stacks *both, int size, int *tab)
 			push_b(both->a, both->b);
 			rotate_b(both->b);
 		}
-		// while (ft_lstsize(stack->head) > 3)
-		// 	push_b(both->a, both->b);
 	}
 }
 
 void	sort(t_stacks *both)
 {
-	t_list *lower;
+	t_list		*lower;
+
 	lower = find_low(both->a);
 	rotate_top(lower, both->a, both);
 }

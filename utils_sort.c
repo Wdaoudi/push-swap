@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 18:44:41 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/16 15:32:40 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/17 16:25:39 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,6 @@ bool	is_sorted(t_stack *stack_a, t_stack *stack_b)
 		return (false);
 	if (stack_b && stack_b->head)
 		return (false);
-	// if (stack_a->head && stack_b->head)
-	// 	return (false);
 	node = stack_a->head;
 	if (node->next == NULL && stack_b->head == NULL)
 		return (true);

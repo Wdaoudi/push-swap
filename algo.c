@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 12:03:51 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/17 15:28:31 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/17 16:44:08 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,27 +26,6 @@ t_list	*find_cheaper(t_stack *stack)
 		current = current->next;
 	}
 	return (lowest);
-}
-
-void	get_target(t_stack *stack_a, t_list *node)
-{
-	t_list	*current;
-	int		soustr1;
-
-	current = stack_a->head;
-	node->target = NULL;
-	while (current != NULL)
-	{
-		if (current->content > node->content)
-		{
-			soustr1 = current->content - node->content;
-			if (node->target == NULL || soustr1 < node->target->content - node->content)
-				node->target = current;
-		}
-		current = current->next;
-	}
-	if (node->target == NULL)
-		node->target = find_low(stack_a);
 }
 
 void	insert(t_stacks *stack)
@@ -87,8 +66,8 @@ void	rotate_top(t_list *node, t_stack *stack, t_stacks *both)
 
 t_list	*find_cheapest(t_stack *stack)
 {
-	t_list *current;
-	t_list *cheapest;
+	t_list		*current;
+	t_list		*cheapest;
 
 	current = stack->head;
 	cheapest = stack->head;

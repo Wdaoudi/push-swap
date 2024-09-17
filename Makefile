@@ -1,8 +1,9 @@
 SRCS =	stack.c\
 		push.c \
 		utils.c \
+		utils2.c \
+		utils3.c \
 		check.c \
-		temporaire.c \
 		swap.c \
 		rotate.c \
 		reverse_rotate.c\

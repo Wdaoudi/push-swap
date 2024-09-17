@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 19:10:11 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/17 15:23:04 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/17 17:03:03 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	cost_top(t_list *lst, t_stack *stack)
 	cost = 0;
 	current = lst;
 	index = determine_index(lst, stack);
-	if (index > ft_lstsize(stack->head) / 2) // ,probleme au niveau de la determination de la taille 
+	if (index > ft_lstsize(stack->head) / 2)
 	{
 		while (current->next)
 		{
@@ -66,10 +66,10 @@ t_list	*highest(t_list *lst, t_stack *stack)
 
 	current = stack->head;
 	closest = stack->head;
-	temp = INT_MAX; 
+	temp = INT_MAX;
 	while (current != NULL)
 	{
-		if (current->content < temp  && lst->content < current->content)
+		if (current->content < temp && lst->content < current->content)
 		{
 			closest = current;
 			temp = current->content;
@@ -78,19 +78,3 @@ t_list	*highest(t_list *lst, t_stack *stack)
 	}
 	return (closest);
 }
-
-int	stack_lenght(t_stack *stack)
-{
-	t_list	*node;
-	int		i;
-
-	i = 1;
-	node = stack->head->next;
-	while (node)
-	{
-		node = node->next;
-		i++;
-	}
-	return (i);
-}
-

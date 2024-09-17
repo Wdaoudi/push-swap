@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:20:54 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/13 15:46:54 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/17 16:45:49 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,7 @@ char	**ft_parsing(int ac, char **av)
 {
 	char	*str;
 	char	**res;
-	// int		i;
 
-	// i = 0;
 	if (ac > 1)
 	{
 		str = ft_input(av);
@@ -107,22 +105,3 @@ char	**ft_parsing(int ac, char **av)
 	}
 	return (NULL);
 }
-
-// int main(int ac, char **av)
-// {
-// 	char **res;
-// 	int *tab;
-// 	int i = 0;
-// 	res = ft_parsing(ac,av);
-// 	if (!res)
-// 		return (0);
-// 	tab = ft_init_tab(res);
-// 	while (res[i])
-// 	{
-// 		printf("%d\n", tab[i]);
-// 		i++;
-// 	}
-// 	ft_free_tab(res);
-// 	free (tab);
-// 	return (0);
-// }

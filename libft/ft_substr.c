@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 13:29:01 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/12 23:24:39 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/17 16:24:37 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	return (str);
 }
-
 
 /*int	main(int ac, char **av)
 {

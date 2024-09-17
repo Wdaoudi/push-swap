@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 13:53:49 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/12 21:33:57 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/17 16:48:53 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,10 @@ void	quick_sort(int *array, int start, int end)
 
 int	part(int *array, int start, int end)
 {
-	int i;
-	int j;
-	int pivot_value;
-	// int temp;
-	// temp = 0;
+	int		i;
+	int		j;
+	int		pivot_value;
+
 	i = start;
 	j = start;
 	pivot_value = array[end];

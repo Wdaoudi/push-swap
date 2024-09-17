@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 13:43:34 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/17 15:04:04 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/17 17:02:09 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int					ft_isdigit_spe(char **str);
 char				*ft_strjoin_free(char *s1, char *s2);
 int					ft_isdigit_string(char *str);
 int					ft_strlen_tab(char **res);
+void				ft_free_end(int *tab, t_stack *a, t_stack *b);
 
 // Fonctions algorithmiques utilitaires
 bool				is_sorted(t_stack *stack_a, t_stack *stack_b);
@@ -64,7 +65,7 @@ t_stack				*input_count(t_stack *lst);
 void				rotate_top(t_list *node, t_stack *stack, t_stacks *both);
 t_list				*find_cheapest(t_stack *stack);
 void				insert(t_stacks *stack);
-int	stack_lenght(t_stack *stack);
+int					stack_lenght(t_stack *stack);
 
 // a classer
 void				sort_stack(t_stacks *both, int size, int *tab);
@@ -116,7 +117,7 @@ void				rrb(t_stack *b);
 void				rrr(t_stack *a, t_stack *b);
 
 // Fonctions d'affichage (pour le débogage)
-void				display_stack(t_stack *lst);
-void				print_list(t_list *stack);
+// void				display_stack(t_stack *lst);
+// void				print_list(t_list *stack);
 
 #endif

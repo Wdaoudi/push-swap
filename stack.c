@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 13:44:02 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/17 15:11:37 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/17 16:32:42 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,8 @@ int	*ft_init_tab(char **res, t_stack *lst)
 
 t_stack	*ft_init_stack(void)
 {
-	// int i;
-	t_stack *new;
+	t_stack	*new;
 
-	// i = 0;
 	new = malloc(sizeof(t_stack));
 	if (!new)
 		return (NULL);
@@ -69,7 +67,7 @@ void	add_to_queue(t_stack *lst, int nbr)
 t_stack	*stack_size(t_stack *stack)
 {
 	stack->size = ft_lstsize(stack->head);
-	return(stack);
+	return (stack);
 }
 
 // int	main(int ac, char **av)
@@ -88,7 +86,7 @@ t_stack	*stack_size(t_stack *stack)
 // 	while (i < lst->size)
 // 		add_to_queue(lst, tab[i++]);
 // 	lst = stack_size(lst);
-// 	printf("%d\n", lst->size);	
+// 	printf("%d\n", lst->size);
 // 	free(tab);
 // 	print_list(lst->head);
 // 	free_stack(lst);
