@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 13:43:34 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/16 18:32:26 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/17 15:04:04 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ void				cost_all_list(t_stack *stack_a, t_stack *stack_b);
 int					cost(t_list *lst, t_stack *stack_a, t_stack *stack_b);
 int					cost_top(t_list *lst, t_stack *stack);
 t_list				*highest(t_list *lst, t_stack *stack);
+void				get_target(t_stack *stack_a, t_list *node);
 
 // Fonctions de mouvements
 void				push_b(t_stack *stack_a, t_stack *stack_b);

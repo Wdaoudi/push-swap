@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 13:43:44 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/17 13:54:13 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/17 15:42:29 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,28 +34,35 @@ int	main(int ac, char **av)
 	stack = malloc(sizeof(t_stacks));
 	if (!stack)
 	{
+		free(tab);
+		free_stack(a);
+		free_stack(b);
 		return (0);
 	}
 	stack->a = a;
 	stack->b = b;
-	
+
 	// PARTIE DE TRI
 	if (is_sorted(a, b) == true)
-		return (0);
+		return (0); // free all
 	if (a->size == 2)
 	{
 		sort_2(a, b);
-		return (0);
+		return (0); //free all
 	}
 	else if (a->size == 3)
 	{
 		sort_3(a);
-		return (0);
+		return (0); //free all
 	}
 	sort_array(tab, a->size);
 	sort_stack(stack, a->size, tab);
 	// printf("liste a la fin du programme\n");
 	// print_list(a->head);
 	// free_stack(stack->a);
+	free(tab);
+	free_stack(a);
+	free_stack(b);
+	free(stack);
 	return (0);
 }

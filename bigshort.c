@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 19:41:04 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/17 14:07:15 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/17 15:28:48 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ void	higher_half_to_b(t_stacks *both, int size, int *tab)
 	t_stack	*stack;
 
 	stack = both->a;
-	while (stack_lenght(stack) > size / 2) //find_top(stack)->content > tab[size * 1 / 2])
+	while (ft_lstsize(stack->head) > size / 2 + 1) //find_top(stack)->content > tab[size * 1 / 2])
 	{
+		// printf("size = %i\n", ft_lstsize(stack->head));
 		if (stack->head->content > tab[size / 4 * 3])
 		{
 			push_b(both->a, both->b);
@@ -67,8 +68,8 @@ void	lowest_half_to_b(t_stacks *both, int size, int *tab)
 			push_b(both->a, both->b);
 			rotate_b(both->b);
 		}
-		while (ft_lstsize(stack->head) > 3)
-			push_b(both->a, both->b);
+		// while (ft_lstsize(stack->head) > 3)
+		// 	push_b(both->a, both->b);
 	}
 }
 

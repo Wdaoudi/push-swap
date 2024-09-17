@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 13:44:02 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/16 13:33:52 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/17 15:11:37 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	add_to_queue(t_stack *lst, int nbr)
 	if (!new)
 		return ;
 	new->next = NULL;
+	new->target = NULL;
 	new->content = nbr;
 	if (!lst->head)
 		lst->head = new;

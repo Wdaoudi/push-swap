@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 19:10:11 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/16 18:38:15 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/17 15:23:04 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,7 @@ int	cost(t_list *lst, t_stack *stack_a, t_stack *stack_b)
 	int	cost;
 
 	cost = cost_top(lst, stack_b);
-	if (find_top(stack_a)->content < lst->content)
-		lst->target = find_low(stack_a);
-	else
-		lst->target = highest(lst, stack_a);
+	get_target(stack_a, lst);
 	cost += cost_top(lst->target, stack_a);
 	++cost;
 	return (cost);
@@ -47,7 +44,7 @@ int	cost_top(t_list *lst, t_stack *stack)
 	cost = 0;
 	current = lst;
 	index = determine_index(lst, stack);
-	if (index > stack_lenght(stack) / 2) // ,probleme au niveau de la determination de la taille 
+	if (index > ft_lstsize(stack->head) / 2) // ,probleme au niveau de la determination de la taille 
 	{
 		while (current->next)
 		{

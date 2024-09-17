@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:22:54 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/13 01:44:25 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/17 15:37:42 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,14 +81,16 @@ int	ft_isdigit_spe(char **str)
 void	free_stack(t_stack *stack)
 {
 	t_list	*current;
-	t_list	*ptr;
+	t_list	*tmp;
 
+	if (!stack)
+		return ;
 	current = stack->head;
 	while (current)
 	{
-		ptr = current->next;
+		tmp = current->next;
 		free(current);
-		current = ptr;
+		current = tmp;
 	}
 	free(stack);
 }
