@@ -6,13 +6,13 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 19:41:04 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/17 18:49:44 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/23 18:52:49 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_stack(t_stacks *both, int size, int *tab)
+void	sort_stack(t_stacks *both, int size, long *tab)
 {
 	higher_half_to_b(both, size, tab);
 	lowest_half_to_b(both, size, tab);
@@ -25,7 +25,7 @@ void	sort_stack(t_stacks *both, int size, int *tab)
 	sort(both);
 }
 
-void	higher_half_to_b(t_stacks *both, int size, int *tab)
+void	higher_half_to_b(t_stacks *both, int size, long *tab)
 {
 	t_stack	*stack;
 
@@ -51,7 +51,7 @@ void	higher_half_to_b(t_stacks *both, int size, int *tab)
 	}
 }
 
-void	lowest_half_to_b(t_stacks *both, int size, int *tab)
+void	lowest_half_to_b(t_stacks *both, int size, long *tab)
 {
 	t_stack	*stack;
 	int		number_input;

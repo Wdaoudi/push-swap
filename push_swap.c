@@ -6,31 +6,42 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 13:43:44 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/17 18:53:23 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/23 19:52:15 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_free_end(int *tab, t_stack *a, t_stack *b)
+void	ft_free_end(long *tab, t_stack *a, t_stack *b)
 {
-	free(tab);
-	free_stack(b);
-	free_stack(a);
+	if (tab)
+		free(tab);
+	if (b)
+		free_stack(b);
+	if (a)
+		free_stack(a);
 }
 
 int	main(int ac, char **av)
 {
-	int			*tab;
+	long			*tab;
 	int			i;
+	int valid;
 	t_stacks	stack;
 
 	stack.a.head = NULL;
+	valid = 1;
 	stack.b.head = NULL;
-	tab = ft_valid(ac, av, &stack.a);
+	if (ft_only_space(av[1]) == 0)
+		return (0);
+	tab = ft_valid(ac, av, &stack.a, &valid);
+	if (valid == 0)
+		return(ft_putendl_fd("Error",2),0);
 	if (!tab)
 		return (0);
 	i = 0;
+	if (stack.a.size == 0)
+		return(ft_free_end(tab,&stack.a,&stack.b),0);
 	while (i < stack.a.size)
 		add_to_queue(&stack.a, tab[i++]);
 	if (is_sorted(&stack.a, &stack.b) == true)

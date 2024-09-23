@@ -6,16 +6,16 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 13:44:02 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/17 18:19:49 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/23 19:16:41 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*ft_init_tab(char **res, t_stack *lst)
+long	*ft_init_tab(char **res, t_stack *lst, int *valid)
 {
 	int	i;
-	int	*tab;
+	long	*tab;
 
 	i = 0;
 	lst->size = ft_strlen_tab(res);
@@ -25,6 +25,8 @@ int	*ft_init_tab(char **res, t_stack *lst)
 	while (i < lst->size)
 	{
 		tab[i] = ft_atoi_spe(res[i]);
+		if (tab[i] == 2147483648)
+			*valid = 0;
 		i++;
 	}
 	return (tab);

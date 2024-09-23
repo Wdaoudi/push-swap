@@ -6,20 +6,20 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 13:53:49 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/17 16:48:53 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/23 18:50:05 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_array(int *array, int lenght)
+void	sort_array(long *array, int lenght)
 {
 	quick_sort(array, 0, lenght - 1);
 }
 
-void	quick_sort(int *array, int start, int end)
+void	quick_sort(long *array, int start, int end)
 {
-	int	pivot_index;
+	long	pivot_index;
 
 	if (start < end)
 	{
@@ -29,7 +29,7 @@ void	quick_sort(int *array, int start, int end)
 	}
 }
 
-int	part(int *array, int start, int end)
+int	part(long *array, int start, int end)
 {
 	int		i;
 	int		j;

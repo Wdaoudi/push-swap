@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 18:44:41 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/17 16:25:39 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/23 18:50:30 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,9 @@ bool	is_sorted(t_stack *stack_a, t_stack *stack_b)
 	return (true);
 }
 
-void	swap(int *x, int *y)
+void	swap(long *x, long *y)
 {
-	int	temp;
+	long	temp;
 
 	temp = *x;
 	*x = *y;

@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:22:54 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/17 18:21:08 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/23 19:46:13 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ long	ft_atoi_spe(char *str)
 	{
 		if (str[i] == '-')
 			sign *= -1;
+		if (str[i+1] == '\0')
+			return (2147483648);
 		i++;
 	}
 	while (str[i] && str[i] >= '0' && str[i] <= '9')
@@ -43,18 +45,20 @@ int	ft_isdigit_spe(char **str)
 	int	i;
 	int	j;
 
+	if (!str || !*(str))
+		return (0);
 	i = 0;
 	j = 0;
 	if (str[j][0] == '\0')
 		return (0);
 	while (str[j])
 	{
-		if (str[j][0] == '-' || str[j][0] == '+')
+		if ((str[j][0] == '-' || str[j][0] == '+') && str[j][1])
 			i++;
 		while (str[j][i] && str[j][i] >= '0' && str[j][i] <= '9')
 			i++;
 		if (str[j][i] != '\0')
-			return (ft_putendl_fd("error", 2), 0);
+			return (0);
 		j++;
 		i = 0;
 	}

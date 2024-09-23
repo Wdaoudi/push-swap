@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 16:26:35 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/17 16:41:50 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/23 19:31:22 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_isdigit_string(char *str)
 		return (0);
 	while (str[j])
 	{
-		if (str[j] == '-' || str[j] == '+')
+		if ((str[j] == '-' || str[j] == '+') && str[j+1])
 			j++;
 		while (str[j] && str[j] >= '0' && str[j] <= '9')
 			j++;

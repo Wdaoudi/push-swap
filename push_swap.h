@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 13:43:34 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/17 18:37:38 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/23 19:50:28 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct s_stack
 {
 	struct s_list	*head;
 	int				size;
-}					t_stack;
+} t_stack; // allias qui permet de simplifier
 
 typedef struct s_stacks
 {
@@ -53,14 +53,15 @@ int					ft_isdigit_spe(char **str);
 char				*ft_strjoin_free(char *s1, char *s2);
 int					ft_isdigit_string(char *str);
 int					ft_strlen_tab(char **res);
-void				ft_free_end(int *tab, t_stack *a, t_stack *b);
+void				ft_free_end(long *tab, t_stack *a, t_stack *b);
+int					ft_only_space(char *str);
 
 // Fonctions algorithmiques utilitaires
 bool				is_sorted(t_stack *stack_a, t_stack *stack_b);
 int					determine_index(t_list *node, t_stack *stack);
 t_list				*find_top(t_stack *stack);
 t_list				*find_low(t_stack *stack);
-void				swap(int *x, int *y);
+void				swap(long *x, long *y);
 t_stack				*input_count(t_stack *lst);
 void				rotate_top(t_list *node, t_stack *stack, t_stacks *both);
 t_list				*find_cheapest(t_stack *stack);
@@ -68,19 +69,19 @@ void				insert(t_stacks *stack);
 int					stack_lenght(t_stack *stack);
 
 // a classer
-void				sort_stack(t_stacks *both, int size, int *tab);
-void				higher_half_to_b(t_stacks *both, int size, int *tab);
-void				lowest_half_to_b(t_stacks *both, int size, int *tab);
+void				sort_stack(t_stacks *both, int size, long *tab);
+void				higher_half_to_b(t_stacks *both, int size, long *tab);
+void				lowest_half_to_b(t_stacks *both, int size, long *tab);
 void				sort(t_stacks *both);
 
 // Fonctions de parsing et de vérification
-int					*ft_valid(int ac, char **av, t_stack *lst);
+long				*ft_valid(int ac, char **av, t_stack *lst, int *valid);
 char				*ft_input(char **av);
-int					ft_check_str(char **res);
-char				**ft_parsing(int ac, char **av);
+int					ft_check_str(char **res, int *valid);
+char				**ft_parsing(int ac, char **av, int *valid);
 
 // Fonctions d'initialisation et de manipulation de stack
-int					*ft_init_tab(char **res, t_stack *lst);
+long				*ft_init_tab(char **res, t_stack *lst, int *valid);
 t_stack				*ft_init_stack(void);
 void				add_to_queue(t_stack *lst, int nbr);
 t_stack				*stack_size(t_stack *stack);
@@ -88,9 +89,9 @@ t_stack				*stack_size(t_stack *stack);
 // Fonctions de tri
 void				sort_2(t_stack *stack_a, t_stack *stack_b);
 void				sort_3(t_stack *stack_a);
-void				sort_array(int *array, int length);
-void				quick_sort(int *array, int start, int end);
-int					part(int *array, int start, int end);
+void				sort_array(long *array, int length);
+void				quick_sort(long *array, int start, int end);
+int					part(long *array, int start, int end);
 
 // Fonctions de calcul de coût
 void				cost_all_list(t_stack *stack_a, t_stack *stack_b);

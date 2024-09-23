@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 16:47:00 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/17 16:47:27 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/23 19:50:11 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,17 @@ int	stack_lenght(t_stack *stack)
 		i++;
 	}
 	return (i);
+}
+
+int ft_only_space(char *str)
+{
+	int i;
+	i = 0;
+	while (str[i])
+	{
+		if (!(str[i] == 32 || str[i] <= 13))
+			return (1);
+		i ++;
+	}
+	return (0);
 }
