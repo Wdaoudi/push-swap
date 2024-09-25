@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 13:43:34 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/23 19:50:28 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/25 15:49:12 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 typedef struct s_stack
 {
 	struct s_list	*head;
-	int				size;
+	size_t				size;
 } t_stack; // allias qui permet de simplifier
 
 typedef struct s_stacks
@@ -52,7 +52,7 @@ t_list				*ft_second_last(t_list *lst);
 int					ft_isdigit_spe(char **str);
 char				*ft_strjoin_free(char *s1, char *s2);
 int					ft_isdigit_string(char *str);
-int					ft_strlen_tab(char **res);
+size_t					ft_strlen_tab(char **res);
 void				ft_free_end(long *tab, t_stack *a, t_stack *b);
 int					ft_only_space(char *str);
 
@@ -120,5 +120,7 @@ void				rrr(t_stack *a, t_stack *b);
 // Fonctions d'affichage (pour le débogage)
 // void				display_stack(t_stack *lst);
 // void				print_list(t_list *stack);
+// void	print_list2(t_stacks stack);
+
 
 #endif

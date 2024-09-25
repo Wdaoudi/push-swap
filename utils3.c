@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 16:47:00 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/23 19:50:11 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/25 19:46:07 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,20 @@ int ft_only_space(char *str)
 	}
 	return (0);
 }
+
+// void	print_list2(t_stacks *stack)
+// {
+// 	t_list	*current;
+
+// 	current = stack->b.head;
+// 	if (current == NULL)
+// 	{
+// 		ft_printf("La liste est vide.\n");
+// 		return ;
+// 	}
+// 	while (current != NULL)
+// 	{
+// 		ft_printf("Content: %d \n", current->target->content);	
+// 		current = current->next;
+// 	}
+// }

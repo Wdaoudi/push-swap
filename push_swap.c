@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 13:43:44 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/23 19:52:15 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/25 19:44:15 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,13 @@ void	ft_free_end(long *tab, t_stack *a, t_stack *b)
 
 int	main(int ac, char **av)
 {
-	long			*tab;
-	int			i;
-	int valid;
+	long		*tab;
+	size_t		i;
+	int			valid;
 	t_stacks	stack;
 
+	if (ac > 1)
+	{
 	stack.a.head = NULL;
 	valid = 1;
 	stack.b.head = NULL;
@@ -36,12 +38,12 @@ int	main(int ac, char **av)
 		return (0);
 	tab = ft_valid(ac, av, &stack.a, &valid);
 	if (valid == 0)
-		return(ft_putendl_fd("Error",2),0);
+		return (ft_putendl_fd("Error", 2), 0);
 	if (!tab)
 		return (0);
 	i = 0;
 	if (stack.a.size == 0)
-		return(ft_free_end(tab,&stack.a,&stack.b),0);
+		return (ft_free_end(tab, &stack.a, &stack.b), 0);
 	while (i < stack.a.size)
 		add_to_queue(&stack.a, tab[i++]);
 	if (is_sorted(&stack.a, &stack.b) == true)
@@ -54,7 +56,14 @@ int	main(int ac, char **av)
 	else if (stack.a.size == 3)
 		return (sort_3(&stack.a), ft_free_end(tab, &stack.a, &stack.b), 0);
 	sort_array(tab, stack.a.size);
+	// for(size_t j = 0; j <stack.a.size; j++)
+	// {
+	// 	printf("%ld\n",tab[j]);
+	// }
 	sort_stack(&stack, stack.a.size, tab);
+	printf("fin de liste\n");
+	print_list(stack.a.head);
 	ft_free_end(tab, &stack.a, &stack.b);
+	}
 	return (0);
 }

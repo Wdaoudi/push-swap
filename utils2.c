@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 16:26:35 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/23 19:31:22 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/25 19:38:34 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_isdigit_string(char *str)
 		return (0);
 	while (str[j])
 	{
-		if ((str[j] == '-' || str[j] == '+') && str[j+1])
+		if ((str[j] == '-' || str[j] == '+') && str[j + 1])
 			j++;
 		while (str[j] && str[j] >= '0' && str[j] <= '9')
 			j++;
@@ -60,9 +60,9 @@ int	ft_isdigit_string(char *str)
 	return (1);
 }
 
-int	ft_strlen_tab(char **res)
+size_t	ft_strlen_tab(char **res)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	if (!res)
@@ -75,7 +75,7 @@ int	ft_strlen_tab(char **res)
 void	get_target(t_stack *stack_a, t_list *node)
 {
 	t_list	*current;
-	int		soustr1;
+	long	soustr1;
 
 	current = stack_a->head;
 	node->target = NULL;
@@ -86,7 +86,9 @@ void	get_target(t_stack *stack_a, t_list *node)
 			soustr1 = current->content - node->content;
 			if (node->target == NULL || soustr1 < node->target->content
 				- node->content)
+			{
 				node->target = current;
+			}
 		}
 		current = current->next;
 	}

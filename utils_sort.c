@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 18:44:41 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/23 18:50:30 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/25 19:38:26 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ int	determine_index(t_list *node, t_stack *stack)
 
 	current = stack->head;
 	i = 0;
-	while (current)
+	while (current != NULL)
 	{
 		if (current == node)
 			return (i);
 		current = current->next;
-		i++;
+		++i;
 	}
 	return (-1);
 }

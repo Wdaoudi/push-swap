@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 13:44:02 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/23 19:16:41 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/25 14:23:25 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 long	*ft_init_tab(char **res, t_stack *lst, int *valid)
 {
-	int	i;
+	size_t	i;
 	long	*tab;
 
 	i = 0;
 	lst->size = ft_strlen_tab(res);
-	tab = malloc(sizeof(int) * (lst->size));
+	tab = malloc(sizeof(long) * (lst->size));
 	if (!tab)
 		return (NULL);
 	while (i < lst->size)
