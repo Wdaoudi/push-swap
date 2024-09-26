@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 19:10:11 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/25 19:50:06 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/26 18:40:41 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	cost_all_list(t_stack *stack_a, t_stack *stack_b)
 	while (lst != NULL)
 	{
 		lst->cost = cost(lst, stack_a, stack_b);
-	lst = lst->next;
+		lst = lst->next;
 	}
 }
 
@@ -34,20 +34,7 @@ int	cost(t_list *lst, t_stack *stack_a, t_stack *stack_b)
 	++cost;
 	return (cost);
 }
-// int	cost(t_list *lst, t_stack *stack_a, t_stack *stack_b)
-// {
-// 	int	cost;
 
-// 	cost = cost_top(lst, stack_b);
-// 	// if (find_top(stack_a)->content > lst->content)
-// 	// 	lst->target = find_low(stack_a);
-// 	// else
-// 	// 	lst->target = highest(lst,stack_a);
-// 	get_target(stack_a, lst);
-// 	cost += cost_top(lst->target, stack_a);
-// 	++cost;
-// 	return (cost);
-// }
 int	cost_top(t_list *lst, t_stack *stack)
 {
 	t_list	*current;
@@ -57,8 +44,6 @@ int	cost_top(t_list *lst, t_stack *stack)
 	cost = 0;
 	current = lst;
 	index = determine_index(lst, stack);
-	// printf("content %d\n", lst->content);
-	// printf("index %d\n", index);
 	if (index > ft_lstsize(stack->head) / 2)
 	{
 		while (current->next)

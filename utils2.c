@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 16:26:35 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/25 19:38:34 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/26 18:39:10 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,24 +74,28 @@ size_t	ft_strlen_tab(char **res)
 
 void	get_target(t_stack *stack_a, t_list *node)
 {
-	t_list	*current;
-	long	soustr1;
+	t_list		*current;
+	t_list		*target;
+	long long	min_diff;
+	long long	diff;
 
 	current = stack_a->head;
-	node->target = NULL;
+	target = NULL;
+	min_diff = LLONG_MAX;
 	while (current != NULL)
 	{
 		if (current->content > node->content)
 		{
-			soustr1 = current->content - node->content;
-			if (node->target == NULL || soustr1 < node->target->content
-				- node->content)
+			diff = (long long)current->content - node->content;
+			if (diff < min_diff)
 			{
-				node->target = current;
+				min_diff = diff;
+				target = current;
 			}
 		}
 		current = current->next;
 	}
-	if (node->target == NULL)
-		node->target = find_low(stack_a);
+	if (!target)
+		target = find_low(stack_a);
+	node->target = target;
 }

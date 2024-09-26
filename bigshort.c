@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 19:41:04 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/25 19:46:03 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/26 18:41:31 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,8 @@ void	sort_stack(t_stacks *both, int size, long *tab)
 	{
 		cost_all_list(&both->a, &both->b);
 		insert(both);
-		// printf("liste a\n");
-		// print_list(stack_a->head);
-
 	}
 	sort(both);
-	// 	printf("en cours\n");
-	// print_list(both->a.head);
 }
 
 void	higher_half_to_b(t_stacks *both, int size, long *tab)
@@ -35,7 +30,7 @@ void	higher_half_to_b(t_stacks *both, int size, long *tab)
 	t_stack	*stack;
 
 	stack = &both->a;
-	while (ft_lstsize(stack->head) > size / 2 +1)
+	while (ft_lstsize(stack->head) > size / 2 + 1)
 	{
 		if (stack->head->content > tab[size / 4 * 3])
 		{
@@ -80,7 +75,5 @@ void	sort(t_stacks *both)
 	t_list	*lower;
 
 	lower = find_low(&both->a);
-	// printf("lower est %d\n", lower->content);
-	// print_list(both->a.head);
 	rotate_top(lower, &both->a, both);
 }

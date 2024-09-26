@@ -6,7 +6,7 @@
 /*   By: wdaoudi- <wdaoudi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:20:54 by wdaoudi-          #+#    #+#             */
-/*   Updated: 2024/09/23 19:23:43 by wdaoudi-         ###   ########.fr       */
+/*   Updated: 2024/09/26 18:40:59 by wdaoudi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ long	*ft_valid(int ac, char **av, t_stack *lst, int *valid)
 	return (ft_free(res), tab);
 }
 
-char	**ft_parsing(int ac, char **av,int *valid)
+char	**ft_parsing(int ac, char **av, int *valid)
 {
 	char	*str;
 	char	**res;
