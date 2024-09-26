@@ -7,6 +7,13 @@
         "typeinfo": "c",
         "compare": "c",
         "ctype.h": "c",
-        "libft.h": "c"
+        "libft.h": "c",
+        "concepts": "c",
+        "new": "c",
+        "limits": "c",
+        "functional": "c",
+        "regex": "c",
+        "fstream": "c",
+        "algorithm": "c"
     }
 }
